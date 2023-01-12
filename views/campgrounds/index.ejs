@@ -4,12 +4,16 @@
   <div>
     <a href="/campgrounds/new">Add Campground</a>
   </div>
-  <% for (let campground of campgrounds){%>
+  <% for (let campground of campgrounds) {%>
     <div class="card" mb-3>
       <div class="row">
         <div class="col-md-4">
+          <% if (campground.images.length) {%> 
           <img class="img-fluid" alt="" src="<%=campground.images[0].url%>">
-        </div>
+          <% } else { %>
+            <img class="img-fluid" alt="" src="https://res.cloudinary.com/dq47zodnm/image/upload/v1673497705/YelpCamp/zddlyepbfj6riftqdrvi.jpg">
+          <% } %> 
+          </div>
         <div class="col-md-8">
           <div class="card-body">
             <h5 class="card-title">

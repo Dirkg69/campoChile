@@ -3,11 +3,9 @@ const Campground = require('../models/campground');
 const cities = require('./cities');
 const { places, descriptors } = require('./seedHelpers');
 
-mongoose.connect('mongodb://localhost:27017/yelp-camp', {
+mongoose.connect('mongodb://localhost:28015/yelp-camp', {
 	useNewUrlParser: true,
-	usefindAndModify: false,
 	useUnifiedTopology: true,
-	useCreateIndex: false,
 });
 
 const db = mongoose.connection;
@@ -30,15 +28,11 @@ const seedDB = async () => {
 			title: `${sample(descriptors)} ${sample(places)}`,
 			description: 'nothing here for now but that will change soon',
 			price,
+			geometry: {
+				type: 'Point',
+				coordinates: [-113.1331, 47.0202],
+			},
 			images: [
-				{
-					url: 'https://res.cloudinary.com/dq47zodnm/image/upload/v1672974429/YelpCamp/uxlcknedpdiuhwjpolg0.jpg',
-					filename: 'YelpCamp/uxlcknedpdiuhwjpolg0',
-				},
-				{
-					url: 'https://res.cloudinary.com/dq47zodnm/image/upload/v1672974430/YelpCamp/wozxkd7ipr2tegh78eyp.jpg',
-					filename: 'YelpCamp/wozxkd7ipr2tegh78eyp',
-				},
 				{
 					url: 'https://res.cloudinary.com/dq47zodnm/image/upload/v1672974430/YelpCamp/koi4z60xxrjttqjxvnoa.jpg',
 					filename: 'YelpCamp/koi4z60xxrjttqjxvnoa',
