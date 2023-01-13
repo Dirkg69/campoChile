@@ -7,6 +7,8 @@ const map = new mapboxgl.Map({
 	zoom: 3,
 });
 
+map.addControl(new mapboxgl.NavigationControl());
+
 map.on('load', () => {
 	// Add a new source from our GeoJSON data and
 	// set the 'cluster' option to true. GL-JS will
@@ -83,7 +85,7 @@ map.on('load', () => {
 	// the location of the feature, with
 	// description HTML from its properties.
 	map.on('click', 'unclustered-point', (e) => {
-		const {popUpMarkup} = e.features[0].properties.popUpMarkup;
+		const { popUpMarkup } = e.features[0].properties;
 		const coordinates = e.features[0].geometry.coordinates.slice();
 		
 		// Ensure that if the map is zoomed out such that
