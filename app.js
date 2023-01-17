@@ -77,7 +77,7 @@ app.use(session(sessionConfig));
 app.use(flash());
 app.use(
 	helmet({
-		originaAgentCluster: false,
+		originaAgentCluster: true,
 		crossOriginOpenerPolicy: false,
 		crossOriginEmbedderPolicy: false,
 		crossOriginResourcePolicy: false,
