@@ -48,7 +48,6 @@ app.use(
 
 const secret = process.env.SECRET;
 
-
 const store = MongoDBStore.create({
 	mongoUrl: dbUrl,
 	secret,
@@ -75,11 +74,12 @@ const sessionConfig = {
 
 app.use(session(sessionConfig));
 app.use(flash());
-app.use(helmet({
-    crossOriginEmbedderPolicy: false,
-    // ...
-  }));
-
+app.use(
+	helmet({
+		crossOriginEmbedderPolicy: false,
+		// ...
+	}),
+);
 
 const scriptSrcUrls = [
 	'https://stackpath.bootstrapcdn.com/',
@@ -161,5 +161,4 @@ const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
 	console.log(`Serving on port ${port}`);
-
 });
