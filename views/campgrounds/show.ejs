@@ -9,7 +9,6 @@
               <img src="<%= img.url%>" class="d-block w-100" alt="">
             </div>
             <% }) %>
-
         </div>
         <% if(campground.images.length> 1) {%>
           <a class="carousel-control-prev" href="#campgroundCarousel" role="button" data-slide="prev">
@@ -22,7 +21,6 @@
           </a>
           <% } %>
       </div>
-
       <div class="card mb-3">
         <div class="card-body">
           <h5 class="card-title">
@@ -52,18 +50,12 @@
               2 days ago
             </div>
       </div>
-
     </div>
     <div class="col-6">
       <div id='map'></div>
-
       <% if(currentUser){ %>
         <h2>Leave a Review</h2>
         <form action="/campgrounds/<%=campground._id%>/reviews" method="POST" class="mb-3 validated-form" novalidate>
-          <!-- <div class="mb-3">
-                <label class="form-label" for="rating">Rating</label>
-                <input class="form-range" type="range" min="1" max="5" name="review[rating]" id="rating">
-            </div> -->
           <fieldset class="starability-basic">
             <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="1" checked
               aria-label="No rating." />
@@ -94,12 +86,12 @@
                 <h5 class="card-title">
                   <%= review.author.username%>
                 </h5>
-                <p class="starability-result" data-rating="<%=review.rating%>">
-                  Rated: <%= review.rating %> stars
-                </p>
-                <!-- <h6 class="card-subtitle mb-2 text-muted">By <%= review.author.username%></h6> -->
-                <p class="card-text">Review: <%= review.body %>
-                </p>
+                   <p class="starability-result" data-rating="<%=review.rating%>">
+                      Rated: <%= review.rating %> stars
+                   </p>
+                <h6 class="card-subtitle mb-2 text-muted">By <%= review.author.username%></h6>
+                   <p class="card-text">Review: <%= review.body %>
+                   </p>
                 <% if( currentUser && review.author.equals(currentUser._id)) {%>
                   <form action="/campgrounds/<%=campground._id%>/reviews/<%=review._id%>?_method=DELETE" method="POST">
                     <button class="btn btn-sm btn-danger">Delete</button>
