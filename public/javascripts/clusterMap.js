@@ -6,7 +6,6 @@ const map = new mapboxgl.Map({
 	zoom: 4,
 });
 
-map.addControl(new mapboxgl.FullscreenControl({container: document.querySelector('body')}));
 const nav = new mapboxgl.NavigationControl();
 map.addControl(nav, 'top-left');
 
