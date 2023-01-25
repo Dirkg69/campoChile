@@ -18,7 +18,7 @@ const mongoSanitize = require('express-mongo-sanitize');
 const userRoutes = require('./routes/users');
 const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
-const dbUrl = process.env.DB_URL || "mongodb://127.0.0.1:27017"; 
+const dbUrl = process.env.DB_URL || 'mongodb://127.0.0.1:27017';
 const MongoDBStore = require('connect-mongo');
 
 mongoose.connect(dbUrl, {
@@ -148,12 +148,12 @@ app.get('/', (req, res) => {
 });
 
 app.all('*', (req, res, next) => {
-	next(new ExpressError('Page Not Found', 404));
+	next(new ExpressError('¡Página no encontrada!', 404));
 });
 
 app.use((err, req, res, next) => {
 	const { statusCode = 500 } = err;
-	if (!err.message) err.message = 'Oh No, Something Went Wrong!';
+	if (!err.message) err.message = '¡Oh no, algo salió mal!';
 	res.status(statusCode).render('error', { err });
 });
 
