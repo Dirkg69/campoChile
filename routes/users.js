@@ -18,7 +18,7 @@ router.get('/logout', (req, res, next) => {
 		if (err) {
 			return next(err);
 		}
-		req.flash('success', 'Goodbye!');
+		req.flash('success', '¡Adiós!');
 		res.redirect('/campgrounds');
 	});
 }); 
