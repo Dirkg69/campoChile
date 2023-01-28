@@ -50,7 +50,7 @@
              <div id="result"></div>
             <script>
               const date = document.lastModified;
-              document.getElementById("result").innerHTML = "última modificación: " + date;
+              document.getElementById("result").innerHTML = "última visita: " + date;
             </script>
           </div>
       </div>
@@ -107,7 +107,7 @@
 
   <script>
     const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
-    const campground = <%- JSON.stringify(campground) %>
+    const campground = <%-JSON.stringify(campground) %>
   </script>
 
   <script src="/javascripts/showPageMap.js"></script>
