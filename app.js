@@ -17,15 +17,15 @@ const mongoSanitize = require('express-mongo-sanitize');
 const userRoutes = require('./routes/users');
 const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
-const dbUrl = process.env.DB_URL || 'mongodb://127.0.0.1:27017';
+const dbUrl = process.env.DB_URL;
 const MongoDBStore = require('connect-mongo');
 
 mongoose.connect(dbUrl, {
 	useNewUrlParser: true,
-	useUnifiedTopology: true,
+	useUnifiedTopology: false,
 });
 
-mongoose.set('strictQuery', true);
+
 const db = mongoose.connection;
 const app = express();
 db.on('error', console.error.bind(console, 'connection error:'));
