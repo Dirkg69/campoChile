@@ -1,6 +1,8 @@
-if (process.env.NODE_ENV !== 'production') {
-	require('dotenv').config();
-}
+// if (process.env.NODE_ENV !== 'production') {
+// 	require('dotenv').config();
+// }
+require('dotenv').config();
+
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
@@ -54,8 +56,8 @@ const sessionConfig = {
 	saveUninitialized: true,
 	cookie: {
 		httpOnly: true,
-		secure: true,
-		expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
+		// secure: true,
+		expires: Date.now() + 1000 * 60 * 60,
 		maxAge: 1000 * 60 * 60 * 24 * 7,
 	}};
 app.use(session(sessionConfig));
