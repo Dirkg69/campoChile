@@ -1,7 +1,7 @@
 <% layout('layouts/boilerplate')%>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-xl-6 position-fixed">
+      <div class="col-sm-6 position-fixed">
         <div id="cluster-map"></div>
       </div>
     </div>
@@ -36,6 +36,7 @@
           <% }%>
       </div>
     </div>
+  </div>
     <script>
       const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
       const campgrounds = { features: <%-JSON.stringify(campgrounds) %>}
