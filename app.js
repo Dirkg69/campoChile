@@ -24,7 +24,7 @@ const MongoDBStore = require('connect-mongo');
 
 mongoose.connect(dbUrl, {
 	useNewUrlParser: true,
-	useUnifiedTopology: false,
+	useUnifiedTopology: true,
 });
 
 
@@ -36,7 +36,7 @@ db.once('open', () => {console.log('Database connected')});
 app.engine('ejs', ejsMate);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(mongoSanitize({ replaceWith: '_' }));
@@ -58,7 +58,7 @@ const sessionConfig = {
 		httpOnly: true,
 		// secure: true,
 		expires: Date.now() + 1000 * 60 * 60,
-		maxAge: 1000 * 60 * 60 * 24 * 7,
+		maxAge: 1000 * 60 * 60,
 	}};
 app.use(session(sessionConfig));
 app.use(flash());

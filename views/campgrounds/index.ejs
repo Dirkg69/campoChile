@@ -1,7 +1,7 @@
 <% layout('layouts/boilerplate')%>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-sm-6 position-fixed">
+      <div class="col-6 position-fixed vw-45">
         <div id="cluster-map"></div>
       </div>
     </div>
@@ -9,7 +9,7 @@
       <div class="col-6"></div>
       <div class="col align-self-end">
         <% for (let campground of campgrounds) { %>
-          <div class="col-sm-12">
+          <div class="col-xs-12">
             <div class="card-group" id="indexCards">
               <div class="card">
                 <%if(campground.images.length) {%>
