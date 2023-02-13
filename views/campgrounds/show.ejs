@@ -31,15 +31,14 @@
           </p>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item text-muted">Ubicación:
-            <%= campground.location%>
-          </li>
-          <!-- <li class="list-group-item"><%= campground.author.username%> -->
-          </li>
+          <li class="list-group-item text-muted">Ubicación:<%= campground.location%></li>
           <li class="list-group-item">$<%= campground.price%>/noche</li>
         </ul>
         <% if( currentUser && campground.author.equals(currentUser._id)) {%>
-          <div class="card-body">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><%= campground.author.username%></li>
+        </ul>
+        <div class="card-body">
             <a class="card-link btn btn-info" href="/campgrounds/<%=campground._id%>/edit">Editar</a>
             <form class="d-inline" action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST">
               <button class="btn btn-danger">Eliminar</button>
