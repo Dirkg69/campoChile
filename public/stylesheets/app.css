@@ -1,8 +1,10 @@
 #cluster-map {  
-    height: 660px;
+    height: 650px;
     border-style: double;
     border-width: 2px;
     border-color: rgba(65, 67, 69, 0.605);
+    
+    
 }
 
 #map {
@@ -18,13 +20,11 @@ body {
 }
 
 #indexCards {
-    margin-left: 10px;
     margin-bottom: 10px;
-    padding-left: 10px;
     padding-bottom: 10px;
     border-style: hidden;
     border-width: 3px;
-    width: 100%;
+    
 }
 
 #campgroundCarousel {
