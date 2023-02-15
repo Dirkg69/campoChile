@@ -19,12 +19,11 @@ body {
     padding-top: 30px;
 }
 
-#indexCards {
-    margin-bottom: 10px;
-    padding-bottom: 10px;
+/* #indexCards {
+    padding-bottom: 5px;
     border-style: hidden;
     border-width: 3px;
-    
+     */
 }
 
 #campgroundCarousel {

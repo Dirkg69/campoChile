@@ -6,13 +6,14 @@
       </div>
     </div>
     <div class="row align-items-center">
-      <div class="col-sm-6 d-none d-sm-block"></div>
+      
         <% for (let campground of campgrounds) { %>
-          <div class="col-sm-6 d-none d-sm-block">
+          <div class="col-sm-6"></div>
+          <div class="col-sm-6 d-none d-sm-block mb-3">
             <div class="card-group" id="indexCards">
               <div class="card">
                 <%if(campground.images.length) {%>
-                  <img src="<%=campground.images[0].url%>" class="card-img-top img-fluid" alt="">
+                  <img src="<%=campground.images[0].url%>" class="card-img-top" alt="">
                   <% }else {%>
                     <img class="card-img-top" alt=""
                       src="https://res.cloudinary.com/douqbebwk/image/upload/v1600103881/YelpCamp/lz8jjv2gyynjil7lswf4.png">
