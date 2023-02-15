@@ -1,7 +1,7 @@
 <% layout('layouts/boilerplate')%>
   <link rel="stylesheet" href="/stylesheets/stars.css">
   <div class="row">
-    <div class="col-6">
+    <div class="col-sm-6">
       <div id="campgroundCarousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <%campground.images.forEach((img, i)=> { %>
@@ -10,7 +10,7 @@
             </div>
             <% }) %>
         </div>
-        <% if(campground.images.length> 1) {%>
+        <% if(campground.images.length > 1) {%>
           <a class="carousel-control-prev" href="#campgroundCarousel" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
@@ -32,7 +32,7 @@
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item text-muted">Ubicación: <%=campground.location%></li>
-          <li class="list-group-item">Rango: <%=campground.price%></li>
+          <li class="list-group-item">Rango de precio: <%=campground.price%></li>
         </ul>
         <% if( currentUser && campground.author.equals(currentUser._id)) {%>
         <ul class="list-group list-group-flush">
@@ -54,8 +54,10 @@
           </div>
       </div>
     </div>
-    <div class="col-6">
-      <div id='map'></div>
+    <div class="col-sm-6">
+      <div class="mb-3">
+        <div id='map'></div>
+      </div>
       <% if(currentUser){ %>
         <h2>Dejar un comentario</h2>
         <form action="/campgrounds/<%=campground._id%>/reviews" method="POST" class="mb-3 validated-form" novalidate>
@@ -100,7 +102,7 @@
                   <% } %>
               </div>
             </div>
-            <% } %>
+          <% } %>
     </div>
   </div>
 

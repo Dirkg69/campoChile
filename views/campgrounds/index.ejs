@@ -6,34 +6,27 @@
       </div>
     </div>
     <div class="row align-items-center">
-      
         <% for (let campground of campgrounds) { %>
           <div class="col-sm-6"></div>
           <div class="col-sm-6 d-none d-sm-block mb-3">
             <div class="card-group" id="indexCards">
               <div class="card">
-                <%if(campground.images.length) {%>
+                <% if (campground.images.length) { %>
                   <img src="<%=campground.images[0].url%>" class="card-img-top" alt="">
-                  <% }else {%>
+                  <% } else { %>
                     <img class="card-img-top" alt=""
                       src="https://res.cloudinary.com/douqbebwk/image/upload/v1600103881/YelpCamp/lz8jjv2gyynjil7lswf4.png">
-                    <% } %>
-                      <div class="card-body">
-                        <h5 class="card-title" style="color: #df7825;">
-                          <%= campground.title %>
-                        </h5>
-                        <p class="card-text">
-                          <%= campground.description %>
-                        </p>
-                        <p class="card-text"><small class="text-muted">
-                            <%= campground.location%>
-                          </small></p>
+                  <% } %>
+                    <div class="card-body">
+                        <h5 class="card-title" style="color: #df7825;"><%= campground.title %></h5>
+                        <p class="card-text"><%= campground.description %></p>
+                        <p class="card-text"><small class="text-muted"><%= campground.location%></small></p>
                         <a class="btn btn-primary" href="/campgrounds/<%=campground._id%>">Ver <%=campground.title%></a>
-                      </div>
+                    </div>
               </div>
             </div>
           </div>
-          <% }%>
+        <% } %>
       </div>
     </div>
   </section>

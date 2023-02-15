@@ -3,7 +3,7 @@ const map = new mapboxgl.Map({
 	container: 'cluster-map',
 	style: 'mapbox://styles/mapbox/light-v11',
 	center: [-71.97773260204097, -39.27093708735973],
-	zoom: 6,
+	zoom: 3,
 });
 
 const nav = new mapboxgl.NavigationControl();
@@ -15,7 +15,7 @@ map.on('load', function () {
 		data: campgrounds,
 		cluster: true,
 		clusterMaxZoom: 14, // Max zoom to cluster points on
-		clusterRadius: 50, // Radius of each cluster when clustering points (defaults to 50)
+		clusterRadius: 30, // Radius of each cluster when clustering points (defaults to 50)
 	});
 
 	map.addLayer({
@@ -48,7 +48,7 @@ map.on('load', function () {
 		filter: ['!', ['has', 'point_count']],
 		paint: {
 			'circle-color': '#11b4da',
-			'circle-radius': 5,
+			'circle-radius': 10,
 			'circle-stroke-width': 2,
 			'circle-stroke-color': '#fff',
 		},
