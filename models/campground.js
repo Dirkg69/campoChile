@@ -1,3 +1,4 @@
+const { string } = require('joi');
 const mongoose = require('mongoose');
 const Review = require('./review');
 const Schema = mongoose.Schema;
@@ -28,7 +29,7 @@ const CampgroundSchema = new Schema({
        required: true
     }
   },
-	price: Number,
+	price: String,
 	description: String,
 	location: String,
 	author: {

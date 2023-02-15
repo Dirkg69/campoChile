@@ -31,12 +31,12 @@
           </p>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item text-muted">Ubicación:<%= campground.location%></li>
-          <li class="list-group-item">$<%= campground.price%>/noche</li>
+          <li class="list-group-item text-muted">Ubicación:<%=campground.location%></li>
+          <li class="list-group-item">Rango: <%=campground.price%></li>
         </ul>
         <% if( currentUser && campground.author.equals(currentUser._id)) {%>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"><%= campground.author.username%></li>
+          <li class="list-group-item"><%=campground.author.username%></li>
         </ul>
         <div class="card-body">
             <a class="card-link btn btn-info" href="/campgrounds/<%=campground._id%>/edit">Editar</a>

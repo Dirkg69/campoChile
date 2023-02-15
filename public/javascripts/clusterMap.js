@@ -2,8 +2,8 @@ mapboxgl.accessToken = mapToken;
 const map = new mapboxgl.Map({
 	container: 'cluster-map',
 	style: 'mapbox://styles/mapbox/light-v11',
-	center: [-70.64827, -33.45694],
-	zoom: 5,
+	center: [-71.97773260204097, -39.27093708735973],
+	zoom: 6,
 });
 
 const nav = new mapboxgl.NavigationControl();
@@ -48,8 +48,8 @@ map.on('load', function () {
 		filter: ['!', ['has', 'point_count']],
 		paint: {
 			'circle-color': '#11b4da',
-			'circle-radius': 4,
-			'circle-stroke-width': 1,
+			'circle-radius': 5,
+			'circle-stroke-width': 2,
 			'circle-stroke-color': '#fff',
 		},
 	});
