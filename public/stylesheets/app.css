@@ -3,15 +3,13 @@
     border-style: double;
     border-width: 2px;
     border-color: rgba(65, 67, 69, 0.605);
-    
-    
 }
 
 #map {
     width: 100%;
     height: 300px;
     border-style: solid;
-    border-width: 1px;
+    border-width: 2px;
     border-color: rgba(65, 67, 69, 0.605);
 }
 
@@ -19,12 +17,6 @@ body {
     padding-top: 30px;
 }
 
-/* #indexCards {
-    padding-bottom: 5px;
-    border-style: hidden;
-    border-width: 3px;
-     */
-}
 
 #campgroundCarousel {
     border-style: solid;

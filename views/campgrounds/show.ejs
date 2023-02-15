@@ -21,7 +21,7 @@
           </a>
           <% } %>
       </div>
-      <div class="card mb-3">
+      <div class="card border-light mb-3">
         <div class="card-body">
           <h5 class="card-title" style="color: #df7825;">
             <%=campground.title%>
@@ -33,9 +33,7 @@
         <ul class="list-group list-group-flush">
           <li class="list-group-item text-muted">Ubicación: <%=campground.location%></li>
           <li class="list-group-item">Rango de precio: <%=campground.price%></li>
-        </ul>
         <% if( currentUser && campground.author.equals(currentUser._id)) {%>
-        <ul class="list-group list-group-flush">
           <li class="list-group-item"><%=campground.author.username%></li>
         </ul>
         <div class="card-body">
@@ -43,7 +41,7 @@
             <form class="d-inline" action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST">
               <button class="btn btn-danger">Eliminar</button>
             </form>
-          </div>
+        </div>
           <% } %>
           <div class="card-footer text-muted">
              <div id="result"></div>
