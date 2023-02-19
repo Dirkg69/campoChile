@@ -1,5 +1,5 @@
 body {
-    font-family: "Gill Sans", sans-serif;
+    font-family: 'Roboto', sans-serif;
     height: 100vh;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("https://images.unsplash.com/photo-1627907228204-f52efce144d0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2073&q=80");
@@ -17,7 +17,11 @@ h2 {
     text-shadow: 0 0 1px #302f2f;
 }
 
-h1:hover {
+h1 a {
+    color:white;
+}
+
+h1 a:hover {
     color:#df7825;
 }
 
