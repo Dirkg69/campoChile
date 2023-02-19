@@ -2,7 +2,7 @@ body {
     font-family: 'Roboto', sans-serif;
     height: 100vh;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("https://images.unsplash.com/photo-1627907228204-f52efce144d0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2073&q=80");
+    url("https://images.unsplash.com/photo-1546800273-4d63ff843853?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80");
     background-size: cover;
     background-position: center;
     text-shadow: 0 0 1px #df7825;
@@ -24,6 +24,11 @@ h1 a {
 
 h1 a:hover {
     color:#df7825;
+}
+
+main {
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 
