@@ -21,6 +21,7 @@ const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
 const dbUrl = process.env.DB_URL;
 const MongoDBStore = require('connect-mongo');
+const limit = require('express-limit').limit;
 
 mongoose.connect(dbUrl, {
 	useNewUrlParser: true,
@@ -40,6 +41,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(mongoSanitize({ replaceWith: '_' }));
+
+
 
 const secret = process.env.SECRET;
 const store = MongoDBStore.create({
@@ -141,19 +144,30 @@ app.use('/', userRoutes);
 app.use('/campgrounds', campgroundRoutes);
 app.use('/campgrounds/:id/reviews', reviewRoutes);
 
-app.get('/', (req, res) => {
+app.get(
+	'/api/users',
+	limit({
+		max: 10, // 5 requests
+		period: 60 * 1000, // per minute (60 seconds)
+	}),
+	function (_req, res) {
+		res.status(200).json({});
+	},
+);
+
+app.get('/', (_req, res) => {
 	res.render('home');
 });
 
-app.get('/about', (req, res) => {
+app.get('/about', (_req, res) => {
 	res.render('about');
 });
 
-app.all('*', (req, res, next) => {
+app.all('*', (_req, _res, next) => {
 	next(new ExpressError('¡Página no encontrada!', 404));
 });
 
-app.use((err, req, res, next) => {
+app.use((err, _req, res, _next) => {
 	const { statusCode = 500 } = err;
 	if (!err.message) err.message = '¡Oh no, algo salió mal!';
 	res.status(statusCode).render('error', { err });

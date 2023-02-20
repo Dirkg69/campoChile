@@ -31,6 +31,10 @@ main {
     margin: 0 auto;
 }
 
+p span {
+    color: #df7825;
+    font-weight: bold;
+}
 
 
 .btn-secondary {

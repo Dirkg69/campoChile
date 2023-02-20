@@ -35,3 +35,7 @@ img {
 img:hover {
     transform: scale(1.5);
 }
+
+h5 {
+    color: #df7825;
+}
