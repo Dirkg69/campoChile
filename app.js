@@ -21,18 +21,18 @@ const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
 const dbUrl = process.env.DB_URL;
 const MongoDBStore = require('connect-mongo');
-const limit = require('express-limit').limit;
+
 
 mongoose.connect(dbUrl, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 });
 
-
 const db = mongoose.connection;
 const app = express();
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', () => {console.log('Database connected')});
+db.once('open', () => {
+	console.log('Database connected');
+});
 
 app.engine('ejs', ejsMate);
 app.set('view engine', 'ejs');
@@ -42,27 +42,28 @@ app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(mongoSanitize({ replaceWith: '_' }));
 
-
-
 const secret = process.env.SECRET;
 const store = MongoDBStore.create({
 	mongoUrl: dbUrl,
 	secret,
-	touchAfter:  60 * 60
+	touchAfter: 60 * 60,
 });
-store.on('error', function (e) {console.log('Session Store Error', e)});
+store.on('error', function (e) {
+	console.log('Session Store Error', e);
+});
 const sessionConfig = {
 	store,
 	name: 'session',
 	secret,
-	resave: false,
+	resave: true,
 	saveUninitialized: true,
 	cookie: {
 		httpOnly: true,
 		// secure: true,
 		expires: Date.now() + 1000 * 60 * 60,
 		maxAge: 1000 * 60 * 60,
-	}};
+	},
+};
 app.use(session(sessionConfig));
 app.use(flash());
 app.use(helmet({ crossOriginEmbedderPolicy: false }));
@@ -143,17 +144,6 @@ app.use((req, res, next) => {
 app.use('/', userRoutes);
 app.use('/campgrounds', campgroundRoutes);
 app.use('/campgrounds/:id/reviews', reviewRoutes);
-
-app.get(
-	'/api/users',
-	limit({
-		max: 10, // 5 requests
-		period: 60 * 1000, // per minute (60 seconds)
-	}),
-	function (_req, res) {
-		res.status(200).json({});
-	},
-);
 
 app.get('/', (_req, res) => {
 	res.render('home');

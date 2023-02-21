@@ -6,8 +6,10 @@ const users = require('../controllers/users');
 
 router.route('/register').get(users.renderRegister).post(catchAsync(users.register));
 
-router.route('/login')
+router
+	.route('/login')
 	.get(users.renderLogin)
+
 	.post(passport.authenticate('local', { failureFlash: true, failureRedirect: '/login' }),
 		users.login,
 	);
@@ -20,5 +22,5 @@ router.get('/logout', (req, res, next) => {
 		req.flash('success', '¡Adiós!');
 		res.redirect('/');
 	});
-}); 
+});
 module.exports = router;

@@ -1,6 +1,6 @@
 const User = require('../models/user');
 
-module.exports.renderRegister = (req, res) => {
+module.exports.renderRegister = (_req, res) => {
 	res.render('users/register');
 };
 
@@ -20,12 +20,11 @@ module.exports.register = async (req, res, next) => {
 	}
 };
 
-module.exports.renderLogin = (req, res) => {
+module.exports.renderLogin = (_req, res) => {
 	res.render('users/login');
 };
 
 module.exports.login = (req, res) => {
-	req.flash('success', '¡Bienvenido de nuevo!');
 	const redirectUrl = req.session.returnTo || '/campgrounds';
 	delete req.session.returnTo;
 	res.redirect(redirectUrl);

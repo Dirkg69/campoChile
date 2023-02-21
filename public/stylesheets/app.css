@@ -23,9 +23,14 @@ body {
 
 #campgroundCarousel {
     border-style: solid;
-    border-width: 1px;
+    border-width: 2px;
     border-color: rgba(65, 67, 69, 0.605);
     max-height: 450px;
+}
+
+.carousel-item {
+    width: 100%;
+    max-height: 445px;
 }
 
 img {
@@ -38,4 +43,8 @@ img:hover {
 
 h5 {
     color: #df7825;
+}
+
+li span {
+    color:rgb(60, 191, 60)
 }
