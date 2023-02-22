@@ -16,6 +16,7 @@
 }
 
 body {
+    background-color: rgb(225, 228, 232);
     font-family: 'Roboto', sans-serif;
     padding-top: 30px;
 }
