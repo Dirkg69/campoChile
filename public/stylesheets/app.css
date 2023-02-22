@@ -28,7 +28,7 @@ body {
     max-height: 450px;
 }
 
-.carousel-item {
+.carousel-item img {
     width: 100%;
     max-height: 445px;
 }
