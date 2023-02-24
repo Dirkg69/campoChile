@@ -57,10 +57,10 @@
         <div id='map'></div>
       </div>
       
-        <h2>Dejar un comentario</h2>
+        <h3>Dejar un comentario</h3>
         <form action="/campgrounds/<%=campground._id%>/reviews" method="POST" class="mb-3 validated-form" novalidate>
           <fieldset class="starability-basic">
-            <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="1" checked
+            <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="0" checked
               aria-label="No rating." />
             <input type="radio" id="first-rate1" name="review[rating]" value="1" />
             <label for="first-rate1" title="Terrible">1 Estrellas</label>
@@ -74,8 +74,8 @@
             <label for="first-rate5" title="Amazing">5 Estrellas</label>
           </fieldset>
           <div class="mb-3">
-            <label class="form-label" for="body">Texto del comentario</label>
-            <textarea class="form-control" name="review[body]" id="body" cols="30" rows="3" required></textarea>
+            <label class="form-label" for="body"></label>
+            <textarea class="form-control" name="review[body]" id="body" cols="30" rows="3" placeholder="Deja tus comentarios aquí" required></textarea>
             <div class="valid-feedback">
               ¡se ve bien!
             </div>

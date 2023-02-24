@@ -45,9 +45,12 @@ module.exports.isReviewAuthor = async (req, res, next) => {
 
 module.exports.validateReview = (req, res, next) => {
 	const { error } = reviewSchema.validate(req.body);
+	const { id } = req.params;
 	if (error) {
-		const msg = error.details.map((el) => el.message).join(',');
-		throw new ExpressError(msg, 400);
+		req.flash('error', '¡Seleccione una calificación de estrellas por favor!');
+		return res.redirect(`/campgrounds/${id}`);
+		// const msg = error.details.map((el) => el.message).join(',');
+		// throw new ExpressError(400);
 	} else {
 		next();
 	}
