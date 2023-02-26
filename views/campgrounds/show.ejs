@@ -26,9 +26,7 @@
           <h5 class="card-title">
             <%=campground.title%>
           </h5>
-          <p class="card-text">
-            <%=campground.description%>
-          </p>
+          <p class="card-text"><a href="<%=campground.description%>"><%=campground.description%></a></p>
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item text-muted"><a href="https://www.google.com/maps/search/?api=1&query=<%=campground.title%> "class="btn btn-info" target="_blank">Indicaciones</a></li>
