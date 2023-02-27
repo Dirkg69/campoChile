@@ -1,7 +1,7 @@
 // if (process.env.NODE_ENV !== 'production') {
 // 	require('dotenv').config();
 // }
-require('dotenv').config();
+// require('dotenv').config();
 
 const express = require('express');
 const path = require('path');
@@ -20,7 +20,7 @@ const userRoutes = require('./routes/users');
 const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
 const dbUrl = process.env.DB_URL;
-const MongoDBStore = require('connect-mongo');
+const MongoDBStore = require('connect-mongo')(session);
 
 
 mongoose.connect(dbUrl, {
@@ -46,7 +46,7 @@ const secret = process.env.SECRET;
 const store = MongoDBStore.create({
 	mongoUrl: dbUrl,
 	secret,
-	touchAfter: 60 * 60,
+	touchAfter: 24 * 60 * 60,
 });
 store.on('error', function (e) {
 	console.log('Session Store Error', e);
