@@ -43,7 +43,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(mongoSanitize({ replaceWith: '_' }));
 
 const secret = process.env.SECRET;
-const store = MongoDBStore.create({
+const store = new MongoDBStore.create({
 	mongoUrl: dbUrl,
 	secret,
 	touchAfter: 24 * 60 * 60,
