@@ -82,7 +82,7 @@
             <% if(currentUser){ %>
               <button class="btn btn-success">Enviar</button>
               <% } else { %>
-                <a href="/login">Por favor inicia sesión o registrarse para añadir una reseña</a>
+                <a href="/login?returnTo=/campgrounds/<%= campground._id %>">Inicia sesión para añadir una reseña</a>
               <% } %>
         </form>
             

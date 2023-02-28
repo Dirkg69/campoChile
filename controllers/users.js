@@ -20,15 +20,18 @@ module.exports.register = async (req, res, next) => {
 	}
 };
 
-module.exports.renderLogin = (_req, res) => {
+module.exports.renderLogin = (req, res) => {
+	if (req.query.returnTo) {
+        req.session.returnTo = req.query.returnTo;
+	}
 	res.render('users/login');
 };
 
 module.exports.login = (req, res) => {
-	const redirectUrl = req.session.returnTo || '/campgrounds';
+	req.flash('success', 'Bienvenido a Campo-o-Chile');
+	const redirectUrl = res.locals.returnTo || '/campgrounds';
+	delete req.session.returnTo;
 	res.redirect(redirectUrl);
-	
-	
 };
 
 module.exports.logout = (req, res) => {

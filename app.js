@@ -55,13 +55,14 @@ const sessionConfig = {
 	store,
 	name: 'session',
 	secret,
-	resave: true,
-	saveUninitialized: true,
+	resave: false,
+	saveUninitialized: false,
 	cookie: {
 		httpOnly: true,
-		// secure: true,
-		expires: Date.now() + 1000 * 60 * 60,
-		maxAge: 1000 * 60 * 60,
+		secure: 'auto',
+		sameSite: 'lax',
+		// expires: Date.now() + 1000 * 60 * 60,
+		maxAge: 3600000,
 	},
 };
 app.use(session(sessionConfig));
@@ -135,6 +136,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use((req, res, next) => {
+	console.log(req.session);
 	res.locals.currentUser = req.user;
 	res.locals.success = req.flash('success');
 	res.locals.error = req.flash('error');
