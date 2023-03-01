@@ -11,7 +11,7 @@ module.exports.register = async (req, res, next) => {
 		const registeredUser = await User.register(user, password);
 		req.login(registeredUser, (err) => {
 			if (err) return next(err);
-			req.flash('success', 'Bienvenido a Campo-o-Chile');
+			req.flash('success', `Bienvenido ${req.user.username}!`);
 			res.redirect('/campgrounds');
 		});
 	} catch (e) {
@@ -28,7 +28,7 @@ module.exports.renderLogin = (req, res) => {
 };
 
 module.exports.login = (req, res) => {
-	req.flash('success', 'Bienvenido a Campo-o-Chile');
+	req.flash('success', `Bienvenido de nuevo ${req.user.username}!`);
 	const redirectUrl = res.locals.returnTo || '/campgrounds';
 	delete req.session.returnTo;
 	res.redirect(redirectUrl);
