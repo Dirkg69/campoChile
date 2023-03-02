@@ -18,10 +18,7 @@
                       src="https://res.cloudinary.com/douqbebwk/image/upload/v1600103881/YelpCamp/lz8jjv2gyynjil7lswf4.png">
                   <% } %>
                     <div class="card-body">
-                        <h5 class="card-title" style="color: #df7825;"><%= campground.title %></h5>
-                        <p class="card-text"><%= campground.description %></p>
-                        <!-- <p class="card-text"><small class="text-muted"><%= campground.location%></small></p> -->
-                        <a class="btn btn-primary" href="/campgrounds/<%=campground._id%>" id="campButton">Ver <%=campground.title%></a>
+                        <a class="btn btn-lg btn-outline-primary" href="/campgrounds/<%=campground._id%>" id="campButton">Ver <%=campground.title%></a>
                     </div>
               </div>
             </div>
