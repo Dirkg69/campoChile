@@ -30,13 +30,14 @@ module.exports.renderLogin = (req, res) => {
 module.exports.login = (req, res) => {
 	req.flash('success', `Bienvenido de nuevo ${req.user.username}!`);
 	const redirectUrl = res.locals.returnTo || '/campgrounds';
-	delete req.session.returnTo;
 	res.redirect(redirectUrl);
 };
 
 module.exports.logout = (req, res) => {
-	req.logout();
-	req.flash('success', 'Adiós');
-	res.redirect('/campgrounds');
+	req.logout(() => {
+		req.flash('success', 'Adiós');
+	    res.redirect('/campgrounds');
+	});
+	
 	
 };

@@ -23,10 +23,7 @@ const dbUrl = process.env.DB_URL;
 const MongoDBStore = require('connect-mongo');
 
 
-mongoose.connect(dbUrl, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true,
-});
+mongoose.connect(dbUrl)
 
 const db = mongoose.connection;
 const app = express();
@@ -67,7 +64,7 @@ const sessionConfig = {
 };
 app.use(session(sessionConfig));
 app.use(flash());
-app.use(helmet({ crossOriginEmbedderPolicy: false }));
+app.use(helmet());
 const scriptSrcUrls = [
 	'https://stackpath.bootstrapcdn.com/',
 	'https://api.tiles.mapbox.com/',
