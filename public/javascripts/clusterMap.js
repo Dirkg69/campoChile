@@ -54,7 +54,6 @@ map.on('load', function () {
 		},
 	});
 
-	// inspect a cluster on click
 	map.on('click', 'clusters', function (e) {
 		const features = map.queryRenderedFeatures(e.point, {
 			layers: ['clusters'],
@@ -70,23 +69,41 @@ map.on('load', function () {
 		});
 	});
 
-	
+	const popup = new mapboxgl.Popup({
+		closeButton: true,
+		closeOnClick: true
+	});
+
 	map.on('click', 'unclustered-point', function (e) {
 		const { popUpMarkup } = e.features[0].properties;
 		const coordinates = e.features[0].geometry.coordinates.slice();
-
-		
-		while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+	while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
 			coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
 		}
-
-		new mapboxgl.Popup().setLngLat(coordinates).setHTML(popUpMarkup).addTo(map);
+	popup.setLngLat(coordinates).setHTML(popUpMarkup).addTo(map);
 	});
 
 	map.on('mouseenter', 'clusters', function () {
 		map.getCanvas().style.cursor = 'pointer';
 	});
+
 	map.on('mouseleave', 'clusters', function () {
 		map.getCanvas().style.cursor = '';
 	});
+
+	map.on('mouseenter', 'unclustered-point', function (e) {
+		const { popUpMarkup } = e.features[0].properties;
+		const coordinates = e.features[0].geometry.coordinates.slice();
+	while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+			coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+		}
+    popup.setLngLat(coordinates).setHTML(popUpMarkup).addTo(map);
+    });
+
+	map.on('mouseleave', 'unclustered-point', function () {
+		setTimeout(() => {
+			popup.remove();
+		  }, "20000")
+		
+    });
 });
