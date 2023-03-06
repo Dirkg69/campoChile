@@ -34,11 +34,11 @@ body {
     max-height: 445px;
 }
 
-img {
+#indexCards {
     transition:transform 0.5s ease-in-out;
 }
 
-img:hover {
+#indexCards:hover {
     transform: scale(1.1);
 }
 
