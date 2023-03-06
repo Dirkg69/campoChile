@@ -36,10 +36,13 @@ body {
 
 #indexCards {
     transition:transform 0.5s ease-in-out;
+   
 }
 
 #indexCards:hover {
     transform: scale(1.1);
+    z-index: 1;
+    position: relative;
 }
 
 h5 {
