@@ -20,9 +20,9 @@
                         ¡Se ve bien!
                     </div>
                 </div>
-                <div class="mb-3">
+                <div class="mb-2">
                     <label class="form-label" for="price">Rango de Precio</label>
-                    <div class="input-group">
+                    <div class="input-group mb-2">
                         <span class="input-group-text" id="inputGroup-sizing-sm">Rango</span>
                         <input type="text" class="form-control" id="price" placeholder="0.00" aria-label="price"
                             aria-describedby="price-label" name="campground[price]" value="<%=campground.price %>"
@@ -31,8 +31,14 @@
                             ¡Se ve bien!
                         </div>
                     </div>
-                </div>
-                <div class="mb-3">
+                    <div class="mb-2">
+                        <label class="form-label" for="premium">Premium</label>
+                        <input class="form-control" type="text" id="premium" name="campground[premium]" value="<%=campground.premium %>">
+                        <div class="valid-feedback">
+                          ¡Se ve bien!
+                        </div>
+                    </div>
+                <div class="mb-2">
                     <label class="form-label" for="description">Descripción</label>
                     <textarea class="form-control" type="text" id="description" name="campground[description]"
                         required><%= campground.description%></textarea>
@@ -40,7 +46,7 @@
                         ¡Se ve bien!
                     </div>
                 </div>
-                <div class="mb-3">
+                <div class="mb-2">
                     <div class="form-file custom-file">
                         <input type="file" class="form-file-input" id="image" name="image" multiple>
                         <label class="form-file-label" for="image">
@@ -49,7 +55,7 @@
                         </label>
                     </div>
                 </div>
-                <div class="mb-3">
+                <div class="mb-2">
                     <% campground.images.forEach(function(img, i) { %>
                         <img src="<%=img.thumbnail %>" class="img-thumbnail" alt="">
                         <div class="form-check-inline">
@@ -58,7 +64,7 @@
                         <label for="image-<%=i%>">¿Borrar?</label>
                         <% })%>
                 </div>
-                <div class="mb-3">
+                <div class="mb-2">
                     <button class="btn btn-info">Actualizar Campamento</button>
                 </div>
             </form>

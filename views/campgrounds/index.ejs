@@ -7,6 +7,7 @@
     </div>
     <div class="row align-items-center">
         <% for (let campground of campgrounds) { %>
+          <% if (campground.premium == 'true') {%>
           <div class="col-sm-6"></div>
           <div class="col-sm-6 d-none d-sm-block mb-3">
             <div class="card-group" id="indexCards">
@@ -23,6 +24,7 @@
               </div>
             </div>
           </div>
+         <% } %>
         <% } %>
       </div>
     </div>

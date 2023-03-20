@@ -1,8 +1,7 @@
-// if (process.env.NODE_ENV !== 'production') {
-// 	require('dotenv').config();
-// }
-// require('dotenv').config();
 
+// require('dotenv').config();
+require("express-async-errors");
+// const morgan = require('morgan');
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
@@ -23,21 +22,23 @@ const dbUrl = process.env.DB_URL;
 const MongoDBStore = require('connect-mongo');
 
 
+
 mongoose.connect(dbUrl)
 
 const db = mongoose.connection;
 const app = express();
-db.once('open', () => {
-	console.log('Database connected');
-});
+db.once('open', () => {console.log('Database connected');});
 
 app.engine('ejs', ejsMate);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(mongoSanitize({ replaceWith: '_' }));
+// app.use(morgan('dev'));
+app.use(express.json());
+
 
 const secret = process.env.SECRET;
 const store = MongoDBStore.create({
@@ -52,8 +53,8 @@ const sessionConfig = {
 	store,
 	name: 'session',
 	secret,
-	resave: false,
-	saveUninitialized: false,
+	resave: true,
+	saveUninitialized: true,
 	cookie: {
 		httpOnly: true,
 		secure: 'auto',
@@ -127,8 +128,7 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
-passport.use(new LocalStrategy(User.authenticate()));
-
+passport.use (new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
@@ -142,6 +142,7 @@ app.use((req, res, next) => {
 app.use('/', userRoutes);
 app.use('/campgrounds', campgroundRoutes);
 app.use('/campgrounds/:id/reviews', reviewRoutes);
+
 
 app.get('/', (_req, res) => {
 	res.render('home');
@@ -161,7 +162,7 @@ app.use((err, _req, res, _next) => {
 	res.status(statusCode).render('error', { err });
 });
 
-const port = process.env.PORT || 3010;
+const port = process.env.PORT || 3020;
 
 app.listen(port, () => {
 	console.log(`Serving on port ${port}`);
