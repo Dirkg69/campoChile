@@ -1,15 +1,41 @@
+// 
 mapboxgl.accessToken = mapToken;
 const map = new mapboxgl.Map({
 	container: 'cluster-map',
-	style: 'mapbox://styles/mapbox/light-v11',
+	style: 'mapbox://styles/dirkg69/clfvgaq9j000x01n3a2sbhkr5',
 	center: [-71.97773260204097, -39.27093708735973],
 	zoom: 3,
 });
 
+
+const geocoder = new MapboxGeocoder({
+    accessToken: mapboxgl.accessToken,
+    mapboxgl: mapboxgl
+});
+
+map.addControl(geocoder, 'top-right');
+
 const nav = new mapboxgl.NavigationControl();
 map.addControl(nav, 'top-left');
 
-map.on('load', function () {	
+map.addControl(
+	new mapboxgl.GeolocateControl({
+	positionOptions: {
+	enableHighAccuracy: true
+	},
+	// When active the map will receive updates to the device's location as it changes.
+	trackUserLocation: true,
+	// Draw an arrow next to the location dot to indicate which direction the device is heading.
+	showUserHeading: true
+	})
+	);
+
+map.on('load', () => {	
+	
+	map.loadImage('images/tentIcon.png', (error,image) => {
+		if (error) console.log(error);		 	
+		map.addImage('tentIcon', image);
+
 	map.addSource('campgrounds', {
 		type: 'geojson',
 		data: campgrounds,
@@ -40,18 +66,20 @@ map.on('load', function () {
 			'text-size': 12,
 		},
 	});
+	
 
 	map.addLayer({
 		id: 'unclustered-point',
-		type: 'circle',
+		type: 'symbol',
 		source: 'campgrounds',
 		filter: ['!', ['has', 'point_count']],
-		paint: {
-			'circle-color': '#11b4da',
-			'circle-radius': 10,
-			'circle-stroke-width': 2,
-			'circle-stroke-color': '#fff',
+		layout: {
+			
+			'icon-image': 'tentIcon',
+			'icon-size': .025,
+			
 		},
+	});		
 	});
 
 	map.on('click', 'clusters', function (e) {
