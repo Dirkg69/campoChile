@@ -10,7 +10,9 @@ const map = new mapboxgl.Map({
 
 const geocoder = new MapboxGeocoder({
     accessToken: mapboxgl.accessToken,
-    mapboxgl: mapboxgl
+    mapboxgl: mapboxgl,
+	placeholder: 'Buscar lugares en Chile',
+	countries: 'cl', 
 });
 
 map.addControl(geocoder, 'top-right');
