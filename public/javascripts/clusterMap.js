@@ -10,7 +10,7 @@ const map = new mapboxgl.Map({
 const geocoder = new MapboxGeocoder({
     accessToken: mapboxgl.accessToken,
     mapboxgl: mapboxgl,
-	placeholder: 'Buscar  en Chile',
+	placeholder: 'Buscar Regiones en Chile',
 	countries: 'cl', 
 });
 
