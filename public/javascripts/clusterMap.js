@@ -10,21 +10,21 @@ const map = new mapboxgl.Map({
 const geocoder = new MapboxGeocoder({
     accessToken: mapboxgl.accessToken,
     mapboxgl: mapboxgl,
-	placeholder: 'Buscar Regiones en Chile',
+	placeholder: 'Buscar Lugares en Chile',
 	countries: 'cl', 
 });
 
 map.addControl(geocoder, 'top-right');
 
 const nav = new mapboxgl.NavigationControl();
-map.addControl(nav, 'bottom-left');
+map.addControl(nav, 'top-right');
 
 map.addControl(
 	new mapboxgl.GeolocateControl({
 	positionOptions: { enableHighAccuracy: true },
 	trackUserLocation: true,
 	showUserHeading: true,
-}), 'bottom-left'
+}), 'top-right'
 );
 
 map.on('load', () => {	
