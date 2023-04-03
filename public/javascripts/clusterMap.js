@@ -1,4 +1,4 @@
-// 
+
 mapboxgl.accessToken = mapToken;
 const map = new mapboxgl.Map({
 	container: 'cluster-map',
@@ -7,30 +7,25 @@ const map = new mapboxgl.Map({
 	zoom: 3,
 });
 
-
 const geocoder = new MapboxGeocoder({
     accessToken: mapboxgl.accessToken,
     mapboxgl: mapboxgl,
-	placeholder: 'Buscar lugares en Chile',
+	placeholder: 'Buscar  en Chile',
 	countries: 'cl', 
 });
 
 map.addControl(geocoder, 'top-right');
 
 const nav = new mapboxgl.NavigationControl();
-map.addControl(nav, 'top-left');
+map.addControl(nav, 'bottom-left');
 
 map.addControl(
 	new mapboxgl.GeolocateControl({
-	positionOptions: {
-	enableHighAccuracy: true
-	},
-	// When active the map will receive updates to the device's location as it changes.
+	positionOptions: { enableHighAccuracy: true },
 	trackUserLocation: true,
-	// Draw an arrow next to the location dot to indicate which direction the device is heading.
-	showUserHeading: true
-	})
-	);
+	showUserHeading: true,
+}), 'bottom-left'
+);
 
 map.on('load', () => {	
 	
@@ -43,7 +38,7 @@ map.on('load', () => {
 		data: campgrounds,
 		cluster: true,
 		clusterMaxZoom: 14, // Max zoom to cluster points on
-		clusterRadius: 30, // Radius of each cluster when clustering points (defaults to 50)
+		clusterRadius: 25, // Radius of each cluster when clustering points (defaults to 50)
 	});
 
 	map.addLayer({
@@ -76,12 +71,10 @@ map.on('load', () => {
 		source: 'campgrounds',
 		filter: ['!', ['has', 'point_count']],
 		layout: {
-			
 			'icon-image': 'tentIcon',
 			'icon-size': .025,
-			
-		},
-	});		
+		  },
+	   });		
 	});
 
 	map.on('click', 'clusters', function (e) {
@@ -134,6 +127,5 @@ map.on('load', () => {
 		setTimeout(() => {
 			popup.remove();
 		  }, "20000")
-		
-    });
+	});
 });
