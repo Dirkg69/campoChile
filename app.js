@@ -54,7 +54,7 @@ const sessionConfig = {
 	saveUninitialized: true,
 	cookie: {
 		httpOnly: true,
-		secure: true,
+		secure: auto,
 		sameSite: 'none',
 		// expires: Date.now() + 1000 * 60 * 60,
 		maxAge: 3600000,
