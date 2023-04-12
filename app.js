@@ -1,5 +1,5 @@
 
-// require('dotenv').config();
+require('dotenv').config();
 
 const morgan = require('morgan');
 const express = require('express');
@@ -55,7 +55,7 @@ const sessionConfig = {
 	cookie: {
 		httpOnly: true,
 		secure: 'auto',
-		sameSite: 'none',
+		sameSite: 'Lax',
 		// expires: Date.now() + 1000 * 60 * 60,
 		maxAge: 3600000,
 	},
@@ -70,8 +70,6 @@ const scriptSrcUrls = [
 	'https://kit.fontawesome.com/',
 	'https://cdnjs.cloudflare.com/',
 	'https://cdn.jsdelivr.net',
-	'https://www.googletagmanager.com',
-	'https://analytics.google.com',
 ];
 const styleSrcUrls = [
 	'https://kit-free.fontawesome.com/',
@@ -80,21 +78,16 @@ const styleSrcUrls = [
 	'https://api.tiles.mapbox.com/',
 	'https://fonts.googleapis.com/',
 	'https://use.fontawesome.com/',
-	'https://www.googletagmanager.com',
 ];
 const connectSrcUrls = [
 	'https://api.mapbox.com/',
 	'https://a.tiles.mapbox.com/',
 	'https://b.tiles.mapbox.com/',
 	'https://events.mapbox.com/',
-	'https://analytics.google.com',
-	'https://www.google.cl',
-	'https://www.googletagmanager.com',
 ];
 const fontSrcUrls = [
 	'https://fonts.googleapis.com/',
 	'https://fonts.gstatic.com/',
-	'https://www.googletagmanager.com',
 ];
 app.use(
 	helmet.contentSecurityPolicy({
@@ -111,8 +104,6 @@ app.use(
 				'data:',
 				'https://res.cloudinary.com/dq47zodnm/',
 				'https://images.unsplash.com/',
-				'https://www.google.cl',
-				'https://www.googletagmanager.com',
 			],
 			fontSrc: ["'self'", ...fontSrcUrls],
 		},
