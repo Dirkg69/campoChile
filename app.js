@@ -1,7 +1,7 @@
 
 // require('dotenv').config();
-require("express-async-errors");
-// const morgan = require('morgan');
+
+const morgan = require('morgan');
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
@@ -21,8 +21,6 @@ const reviewRoutes = require('./routes/reviews');
 const dbUrl = process.env.DB_URL;
 const MongoDBStore = require('connect-mongo');
 
-
-
 mongoose.connect(dbUrl)
 
 const db = mongoose.connection;
@@ -36,9 +34,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(mongoSanitize({ replaceWith: '_' }));
-// app.use(morgan('dev'));
+app.use(morgan('dev'));
 app.use(express.json());
-
 
 const secret = process.env.SECRET;
 const store = MongoDBStore.create({
@@ -58,7 +55,7 @@ const sessionConfig = {
 	cookie: {
 		httpOnly: true,
 		secure: 'auto',
-		sameSite: 'lax',
+		sameSite: 'Lax',
 		// expires: Date.now() + 1000 * 60 * 60,
 		maxAge: 3600000,
 	},
@@ -73,6 +70,7 @@ const scriptSrcUrls = [
 	'https://kit.fontawesome.com/',
 	'https://cdnjs.cloudflare.com/',
 	'https://cdn.jsdelivr.net',
+	'https://www.googletagmanager.com',
 ];
 const styleSrcUrls = [
 	'https://kit-free.fontawesome.com/',
