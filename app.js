@@ -80,6 +80,7 @@ const styleSrcUrls = [
 	'https://api.tiles.mapbox.com/',
 	'https://fonts.googleapis.com/',
 	'https://use.fontawesome.com/',
+	'https://www.googletagmanager.com',
 ];
 const connectSrcUrls = [
 	'https://api.mapbox.com/',
