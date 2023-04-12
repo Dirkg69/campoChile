@@ -54,7 +54,7 @@ const sessionConfig = {
 	saveUninitialized: true,
 	cookie: {
 		httpOnly: true,
-		secure: 'auto',
+		secure: true,
 		sameSite: 'none',
 		// expires: Date.now() + 1000 * 60 * 60,
 		maxAge: 3600000,
@@ -63,6 +63,7 @@ const sessionConfig = {
 app.use(session(sessionConfig));
 app.use(flash());
 app.use(helmet());
+app.use(helmet.crossOriginEmbedderPolicy({ policy: "credentialless" }));
 const scriptSrcUrls = [
 	'https://stackpath.bootstrapcdn.com/',
 	'https://api.tiles.mapbox.com/',
