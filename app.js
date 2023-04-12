@@ -71,7 +71,7 @@ const scriptSrcUrls = [
 	'https://cdnjs.cloudflare.com/',
 	'https://cdn.jsdelivr.net',
 	'https://www.googletagmanager.com',
-	'https://www.google-analytics.com',
+	'https://analytics.google.com',
 ];
 const styleSrcUrls = [
 	'https://kit-free.fontawesome.com/',
@@ -86,7 +86,7 @@ const connectSrcUrls = [
 	'https://a.tiles.mapbox.com/',
 	'https://b.tiles.mapbox.com/',
 	'https://events.mapbox.com/',
-	'https://www.google-analytics.com',
+	'https://analytics.google.com',
 ];
 const fontSrcUrls = [
 	'https://fonts.googleapis.com/',
