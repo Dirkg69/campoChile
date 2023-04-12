@@ -88,6 +88,7 @@ const connectSrcUrls = [
 	'https://b.tiles.mapbox.com/',
 	'https://events.mapbox.com/',
 	'https://analytics.google.com',
+	'https://www.google.cl',
 ];
 const fontSrcUrls = [
 	'https://fonts.googleapis.com/',
