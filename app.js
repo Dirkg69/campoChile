@@ -89,6 +89,7 @@ const connectSrcUrls = [
 	'https://events.mapbox.com/',
 	'https://analytics.google.com',
 	'https://www.google.cl',
+	'https://www.googletagmanager.com',
 ];
 const fontSrcUrls = [
 	'https://fonts.googleapis.com/',
