@@ -2,7 +2,7 @@
 mapboxgl.accessToken = mapToken;
 const map = new mapboxgl.Map({
 	container: 'cluster-map',
-	style: 'mapbox://styles/dirkg69/clfvgaq9j000x01n3a2sbhkr5',
+	style: 'mapbox://styles/dirkg69/clggvqtkh006501lbmpta5azm',
 	center: [-71.97773260204097, -39.27093708735973],
 	zoom: 3,
 });
@@ -29,7 +29,7 @@ map.addControl(
 
 map.on('load', () => {	
 	
-	map.loadImage('images/tentIcon.png', (error,image) => {
+	map.loadImage('/images/tentIcon.png', (error,image) => {
 		if (error) console.log(error);		 	
 		map.addImage('tentIcon', image);
 
