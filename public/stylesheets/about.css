@@ -43,3 +43,10 @@ p span {
     background-color: #363535;
     text-shadow: none;
 }
+
+p {
+    animation-duration: 3s;
+    animation-name: slidein;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
