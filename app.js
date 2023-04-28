@@ -1,5 +1,5 @@
 
-
+// require('dotenv').config();
 
 const morgan = require('morgan');
 const express = require('express');
@@ -18,6 +18,8 @@ const mongoSanitize = require('express-mongo-sanitize');
 const userRoutes = require('./routes/users');
 const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
+const parkReviewRoutes = require('./routes/parkReviews');
+const parkRoutes = require('./routes/parks');
 const dbUrl = process.env.DB_URL;
 const MongoDBStore = require('connect-mongo');
 
@@ -127,6 +129,8 @@ app.use((req, res, next) => {
 app.use('/', userRoutes);
 app.use('/campgrounds', campgroundRoutes);
 app.use('/campgrounds/:id/reviews', reviewRoutes);
+app.use('/parks', parkRoutes);
+app.use('/parks/:id/parkreviews', parkReviewRoutes);
 
 
 app.get('/', (_req, res) => {

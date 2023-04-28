@@ -27,7 +27,6 @@
           <p class="card-text"><%=campground.description%></p>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item text-muted"><a class="btn btn-info" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=<%=campground.title%>">Indicaciones</a></li>
           <li class="list-group-item">Rango de precio: <span><%=campground.price%></span></li>
         <% if( currentUser && campground.author.equals(currentUser._id)) {%>
           <li class="list-group-item"><%=campground.author.username%></li>
@@ -39,20 +38,16 @@
             </form>
         </div>
           <% } %>
-      <!-- <div id="result"></div>
-            <script>
-              const date = document.lastModified;
-              document.getElementById("result").innerHTML = "última visita: " + date;
-            </script> -->
-          <!-- </div> -->
-      </div>
+        </div>
     </div>
     <div class="col-sm-6">
       <div class="mb-3">
         <div id='map'></div>
       </div>
-      
-        <h3>Dejar un comentario</h3>
+      <div class="mb-3">
+        <a class="btn btn-info" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=<%=campground.title%>">Indicaciones</a>
+      </div>
+        <h3>Dejar un Comentario</h3>
         <form action="/campgrounds/<%=campground._id%>/reviews" method="POST" class="mb-3 validated-form" novalidate>
           <fieldset class="starability-basic">
             <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="0" checked

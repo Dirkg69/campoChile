@@ -1,18 +1,18 @@
 <% layout('layouts/boilerplate')%>
   <div class="row">
-    <h1 class="text-center">Campamento Nuevo</h1>
+    <h1 class="text-center">Parque Nuevo</h1>
     <div class="col-6 offset-3">
-      <form action="/campgrounds" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
+      <form action="/parks" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
         <div class="mb-3">
           <label class="form-label" for="title">Título</label>
-          <input class="form-control" type="text" id="title" name="campground[title]" required>
+          <input class="form-control" type="text" id="title" name="park[title]" required>
           <div class="valid-feedback">
             ¡Se ve bien!
           </div>
         </div>
         <div class="mb-3">
           <label class="form-label" for="location">localización</label>
-          <input class="form-control" type="text" id="location" name="campground[location]" required>
+          <input class="form-control" type="text" id="location" name="park[location]" required>
           <div class="valid-feedback">
             ¡Se ve bien!
           </div>
@@ -22,7 +22,7 @@
           <div class="input-group">
             <span class="input-group-text" id="inputGroup-sizing-sm">Rango</span>
             <input type="text" class="form-control" id="price" placeholder="$$$" aria-label="price range"
-              aria-describedby="price-label" name="campground[price]" required>
+              aria-describedby="price-label" name="park[price]" required>
           </div>
           <div class="valid-feedback">
             ¡Se ve bien!
@@ -31,14 +31,14 @@
 
         <div class="mb-3">
           <label class="form-label" for="description">Descripción</label>
-          <textarea class="form-control" type="text" id="description" name="campground[description]"
+          <textarea class="form-control" type="text" id="description" name="park[description]"
             required></textarea>
           <div class="valid-feedback">
             ¡Se ve bien!
         </div>
         <div class="mb-3">
             <label class="form-label" for="premium"></label>
-            <input class="form-control" type="text" id="premium" name="campground[premium]" placeholder="Premium?">
+            <input class="form-control" type="text" id="premium" name="park[premium]" placeholder="Premium?">
             <div class="valid-feedback">
               ¡Se ve bien!
             </div>
@@ -53,9 +53,9 @@
           </div>
         </div>
         <div class="mb-3">
-          <button class="btn btn-success">Añadir Campamento</button>
+          <button class="btn btn-success">Añadir Parque</button>
         </div>
       </form>
-      <a href="/campgrounds">Todos los Campamentos</a>
+      <a href="/parks">Todos los Parques</a>
     </div>
   </div>

@@ -1,0 +1,73 @@
+<% layout('layouts/boilerplate')%>
+    <div class="row">
+        <h1 class="text-center">Editar Parque</h1>
+        <div class="col-6 offset-3">
+            <form action="/parks/<%=park._id%>?_method=PUT" method="POST" novalidate class="validated-form"
+                enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label class="form-label" for="title">Título</label>
+                    <input class="form-control" type="text" id="title" name="park[title]"
+                        value="<%=park.title %>" required>
+                    <div class="valid-feedback">
+                        ¡Se ve bien!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="location">Localización</label>
+                    <input class="form-control" type="text" id="location" name="park[location]"
+                        value="<%=park.location %>" required>
+                    <div class="valid-feedback">
+                        ¡Se ve bien!
+                    </div>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label" for="price">Rango de Precio</label>
+                    <div class="input-group mb-2">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Rango</span>
+                        <input type="text" class="form-control" id="price" placeholder="0.00" aria-label="price"
+                            aria-describedby="price-label" name="park[price]" value="<%=park.price %>"
+                            required>
+                        <div class="valid-feedback">
+                            ¡Se ve bien!
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label" for="premium">Premium</label>
+                        <input class="form-control" type="text" id="premium" name="park[premium]" value="<%=park.premium %>">
+                        <div class="valid-feedback">
+                          ¡Se ve bien!
+                        </div>
+                    </div>
+                <div class="mb-2">
+                    <label class="form-label" for="description">Descripción</label>
+                    <textarea class="form-control" type="text" id="description" name="park[description]"
+                        required><%= park.description%></textarea>
+                    <div class="valid-feedback">
+                        ¡Se ve bien!
+                    </div>
+                </div>
+                <div class="mb-2">
+                    <div class="form-file custom-file">
+                        <input type="file" class="form-file-input" id="image" name="image" multiple>
+                        <label class="form-file-label" for="image">
+                            <span class="form-file-text custom-file-label">Añadir más imágene(s)...</span>
+                            <span class="form-file-button">Navegar</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="mb-2">
+                    <%park.images.forEach(function(img, i) { %>
+                        <img src="<%=img.thumbnail %>" class="img-thumbnail" alt="">
+                        <div class="form-check-inline">
+                            <input type="checkbox" id="image-<%=i%>" name="deleteImages[]" value="<%=img.filename%>">
+                        </div>
+                        <label for="image-<%=i%>">¿Borrar?</label>
+                        <% })%>
+                </div>
+                <div class="mb-2">
+                    <button class="btn btn-info">Actualizar Parque</button>
+                </div>
+            </form>
+            <a href="/parks/<%= park._id%>">Volver a Parque</a>
+        </div>
+    </div>
