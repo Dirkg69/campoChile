@@ -25,11 +25,8 @@ map.addControl(
 	
 new mapboxgl.Marker()
 	.setLngLat(park.geometry.coordinates)
-	.setPopup(
-		new mapboxgl.Popup({ offset: 25 })
-			.setHTML(
-			`<h3>${park.title}</h3>`
-		)
+	.setPopup(new mapboxgl.Popup({ offset: 25 })
+	.setHTML(`<h6>${park.title}</h6>`)
 	)
 
 	.addTo(map);

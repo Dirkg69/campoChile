@@ -25,12 +25,8 @@ map.addControl(
 }));
 	
 new mapboxgl.Marker()
-	.setLngLat(campground.geometry.coordinates)
-	.setPopup(
-		new mapboxgl.Popup({ offset: 25 })
-			.setHTML(
-			`<h3>${campground.title}</h3>`
-		)
+	.setLngLat(park.geometry.coordinates)
+	.setPopup(new mapboxgl.Popup({ offset: 25 })
+	.setHTML(`<h6>${park.title}</h6>`)
 	)
-
 	.addTo(map);

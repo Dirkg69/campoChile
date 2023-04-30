@@ -46,7 +46,7 @@ map.on('load', () => {
 		source: 'parks',
 		filter: ['has', 'point_count'],
 		paint: {
-			'circle-color': ['step', ['get', 'point_count'], '#00BCD4', 10, '#2196F3', 30, '#3F51B5'],
+			'circle-color': ['step', ['get', 'point_count'], '#077924', 10, '#15a949', 30, '#74da4f'],
 			'circle-radius': ['step', ['get', 'point_count'], 15, 10, 20, 30, 25],
 		},
 	});
