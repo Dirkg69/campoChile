@@ -1,5 +1,5 @@
 
-// require('dotenv').config();
+require('dotenv').config();
 
 const morgan = require('morgan');
 const express = require('express');
@@ -22,6 +22,7 @@ const parkReviewRoutes = require('./routes/parkReviews');
 const parkRoutes = require('./routes/parks');
 const dbUrl = process.env.DB_URL;
 const MongoDBStore = require('connect-mongo');
+const languageRoutes = require('./routes/language');
 
 mongoose.connect(dbUrl)
 
@@ -73,6 +74,13 @@ const scriptSrcUrls = [
 	'https://kit.fontawesome.com/',
 	'https://cdnjs.cloudflare.com/',
 	'https://cdn.jsdelivr.net',
+	'https://pagead2.googlesyndication.com/',
+	'https://www.googletagmanager.com/',
+    'https://www.google-analytics.com/',
+	'https://partner.googleadservices.com/',
+	'https://adservice.google.cl/',
+	'https://adservice.google.com/',
+	'https://tpc.googlesyndication.com/',
 ];
 const styleSrcUrls = [
 	'https://kit-free.fontawesome.com/',
@@ -87,6 +95,8 @@ const connectSrcUrls = [
 	'https://a.tiles.mapbox.com/',
 	'https://b.tiles.mapbox.com/',
 	'https://events.mapbox.com/',
+	'https://pagead2.googlesyndication.com/',
+	'https://csi.gstatic.com/',
 ];
 const fontSrcUrls = [
 	'https://fonts.googleapis.com/',
@@ -95,7 +105,7 @@ const fontSrcUrls = [
 app.use(
 	helmet.contentSecurityPolicy({
 		directives: {
-			defaultSrc: [],
+			defaultSrc: ['https://googleads.g.doubleclick.net/','https://www.google.com/','https://tpc.googlesyndication.com/'],
 			connectSrc: ["'self'", ...connectSrcUrls],
 			scriptSrc: ["'unsafe-inline'", "'self'", ...scriptSrcUrls],
 			styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
@@ -107,6 +117,7 @@ app.use(
 				'data:',
 				'https://res.cloudinary.com/dq47zodnm/',
 				'https://images.unsplash.com/',
+				'https://pagead2.googlesyndication.com/',
 			],
 			fontSrc: ["'self'", ...fontSrcUrls],
 		},
@@ -131,6 +142,7 @@ app.use('/campgrounds', campgroundRoutes);
 app.use('/campgrounds/:id/reviews', reviewRoutes);
 app.use('/parks', parkRoutes);
 app.use('/parks/:id/parkreviews', parkReviewRoutes);
+app.use('/api', languageRoutes);
 
 
 app.get('/', (_req, res) => {
@@ -151,7 +163,7 @@ app.use((err, _req, res, _next) => {
 	res.status(statusCode).render('error', { err });
 });
 
-const port = process.env.PORT || 3020;
+const port = process.env.PORT || 3010;
 
 app.listen(port, () => {
 	console.log(`Serving on port ${port}`);
