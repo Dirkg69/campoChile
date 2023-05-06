@@ -22,7 +22,7 @@ const parkReviewRoutes = require('./routes/parkReviews');
 const parkRoutes = require('./routes/parks');
 const dbUrl = process.env.DB_URL;
 const MongoDBStore = require('connect-mongo');
-const languageRoutes = require('./routes/language');
+
 
 mongoose.connect(dbUrl)
 
@@ -142,7 +142,7 @@ app.use('/campgrounds', campgroundRoutes);
 app.use('/campgrounds/:id/reviews', reviewRoutes);
 app.use('/parks', parkRoutes);
 app.use('/parks/:id/parkreviews', parkReviewRoutes);
-app.use('/api', languageRoutes);
+
 
 
 app.get('/', (_req, res) => {
