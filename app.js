@@ -1,10 +1,9 @@
 
-// require('dotenv').config();
+require('dotenv').config();
 
 const morgan = require('morgan');
 const express = require('express');
-const bodyParser = require("body-parser");
-const smws = require("smws");
+const smws = require('smws');
 const path = require('path');
 const mongoose = require('mongoose');
 const ejsMate = require('ejs-mate');
@@ -41,7 +40,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(mongoSanitize({ replaceWith: '_' }));
 app.use(morgan('dev'));
 app.use(express.json());
-app.use(bodyParser.urlencoded({extended: true}));
+
 
 smws.config({
     languages: ['en','es','fr','de'],
