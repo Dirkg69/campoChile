@@ -1,8 +1,11 @@
 
-require('dotenv').config();
+// require('dotenv').config();
 
 const morgan = require('morgan');
 const express = require('express');
+const cookieParser = require('cookie-parser');
+const bodyParser = require("body-parser");
+const smws = require("smws");
 const path = require('path');
 const mongoose = require('mongoose');
 const ejsMate = require('ejs-mate');
@@ -39,6 +42,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(mongoSanitize({ replaceWith: '_' }));
 app.use(morgan('dev'));
 app.use(express.json());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(cookieParser());
+smws.config({
+    languages: ['en','es','fr','de'],
+    defaultLang: 'en',
+	origin: 'https://www.camp-o-chile.cl'
+});
 
 const secret = process.env.SECRET;
 const store = MongoDBStore.create({
@@ -58,8 +68,6 @@ const sessionConfig = {
 	cookie: {
 		httpOnly: true,
 		secure: 'auto',
-		sameSite: 'Lax',
-		// expires: Date.now() + 1000 * 60 * 60,
 		maxAge: 3600000,
 	},
 };
@@ -81,6 +89,7 @@ const scriptSrcUrls = [
 	'https://adservice.google.cl/',
 	'https://adservice.google.com/',
 	'https://tpc.googlesyndication.com/',
+	'https://googleads.g.doubleclick.net',
 ];
 const styleSrcUrls = [
 	'https://kit-free.fontawesome.com/',
@@ -97,6 +106,7 @@ const connectSrcUrls = [
 	'https://events.mapbox.com/',
 	'https://pagead2.googlesyndication.com/',
 	'https://csi.gstatic.com/',
+	'https://googleads.g.doubleclick.net',
 ];
 const fontSrcUrls = [
 	'https://fonts.googleapis.com/',
@@ -144,6 +154,28 @@ app.use('/parks', parkRoutes);
 app.use('/parks/:id/parkreviews', parkReviewRoutes);
 
 
+app.post('/:lang/language', (req,res)=>{
+    smws.switcher(req,res);
+});
+
+app.get('/', function (req, res) {
+    smws.run(req, res, {
+        page: 'home'
+    });
+});
+
+app.get('/:lang', function (req, res) {
+    smws.run(req, res, {
+        page: 'home'
+    });
+});
+
+app.get(smws.split('/:lang/:category'), function (req, res) {
+    smws.run(req,res,{
+        page: 'category',
+        useParams: ['lang', 'category']
+    });
+});
 
 app.get('/', (_req, res) => {
 	res.render('home');

@@ -25,7 +25,14 @@
         <p>Salta directamente y explora los muchos campamentos y espacios abiertos de Chile!</p>
         <br>
         <a href="/campgrounds" class="btn btn-lg btn-secondary font-weight-bold border-black bg-black">Campamentos</a>
+        
     </main>
+    <form action="/<%= smws.lang %>/language" method="post">
+        <button class="en-button" type="submit" name="lang" value="en">EN</button>
+        <button class="es-button" type="submit" name="lang" value="es">ES</button>
+        <button class="de-button" type="submit" name="lang" value="de">DE</button>
+        <button class="fr-button" type="submit" name="lang" value="fr">FR</button>
+    </form>
 
     <footer class="mt-auto text-center text-white-50">
         <p>&copy; 2022 D&Evduo </p>
