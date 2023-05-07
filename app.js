@@ -3,7 +3,6 @@
 
 const morgan = require('morgan');
 const express = require('express');
-const cookieParser = require('cookie-parser');
 const bodyParser = require("body-parser");
 const smws = require("smws");
 const path = require('path');
@@ -43,7 +42,7 @@ app.use(mongoSanitize({ replaceWith: '_' }));
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(cookieParser());
+
 smws.config({
     languages: ['en','es','fr','de'],
     defaultLang: 'en',
