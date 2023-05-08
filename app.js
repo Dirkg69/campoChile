@@ -4,8 +4,8 @@ require('dotenv').config();
 const morgan = require('morgan');
 const express = require('express');
 const smws = require('smws');
-const cookieParser = require('cookie-parser'),
-const bodyParser = require('body-parser'),
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
 const path = require('path');
 const mongoose = require('mongoose');
 const ejsMate = require('ejs-mate');
