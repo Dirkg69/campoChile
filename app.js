@@ -3,7 +3,6 @@ require('dotenv').config();
 
 const morgan = require('morgan');
 const express = require('express');
-const smws = require('smws');
 const path = require('path');
 const mongoose = require('mongoose');
 const ejsMate = require('ejs-mate');
@@ -24,7 +23,6 @@ const parkRoutes = require('./routes/parks');
 const dbUrl = process.env.DB_URL;
 const MongoDBStore = require('connect-mongo');
 
-
 mongoose.connect(dbUrl)
 
 const db = mongoose.connection;
@@ -40,13 +38,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(mongoSanitize({ replaceWith: '_' }));
 app.use(morgan('dev'));
 app.use(express.json());
-
-
-smws.config({
-    languages: ['en','es','fr','de'],
-    defaultLang: 'en',
-	origin: 'https://www.camp-o-chile.cl'
-});
 
 const secret = process.env.SECRET;
 const store = MongoDBStore.create({
@@ -150,30 +141,6 @@ app.use('/campgrounds', campgroundRoutes);
 app.use('/campgrounds/:id/reviews', reviewRoutes);
 app.use('/parks', parkRoutes);
 app.use('/parks/:id/parkreviews', parkReviewRoutes);
-
-
-app.post('/:lang/language', (req,res)=>{
-    smws.switcher(req,res);
-});
-
-app.get('/', function (req, res) {
-    smws.run(req, res, {
-        page: 'home'
-    });
-});
-
-app.get('/:lang', function (req, res) {
-    smws.run(req, res, {
-        page: 'home'
-    });
-});
-
-app.get(smws.split('/:lang/:category'), function (req, res) {
-    smws.run(req,res,{
-        page: 'category',
-        useParams: ['lang', 'category']
-    });
-});
 
 app.get('/', (_req, res) => {
 	res.render('home');
