@@ -5,6 +5,7 @@ const morgan = require('morgan');
 const express = require('express');
 const smws = require('smws');
 const cookieParser = require('cookie-parser'),
+const bodyParser = require('body-parser'),
 const path = require('path');
 const mongoose = require('mongoose');
 const ejsMate = require('ejs-mate');
@@ -42,7 +43,7 @@ app.use(mongoSanitize({ replaceWith: '_' }));
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(cookieParser());
-
+app.use(bodyParser.urlencoded({extended: true}));
 
 smws.config({
     languages: ['en','es','fr','de'],
