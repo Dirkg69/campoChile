@@ -1,5 +1,5 @@
 
-require('dotenv').config();
+// require('dotenv').config();
 
 const morgan = require('morgan');
 const express = require('express');
@@ -38,6 +38,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(mongoSanitize({ replaceWith: '_' }));
 app.use(morgan('dev'));
 app.use(express.json());
+
+
+smws.config({
+    languages: ['en','es','fr','de'],
+    defaultLang: 'en',
+	origin: 'https://www.camp-o-chile.cl'
+});
 
 const secret = process.env.SECRET;
 const store = MongoDBStore.create({
