@@ -4,6 +4,7 @@ require('dotenv').config();
 const morgan = require('morgan');
 const express = require('express');
 const smws = require('smws');
+const cookieParser = require('cookie-parser'),
 const path = require('path');
 const mongoose = require('mongoose');
 const ejsMate = require('ejs-mate');
@@ -40,11 +41,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(mongoSanitize({ replaceWith: '_' }));
 app.use(morgan('dev'));
 app.use(express.json());
+app.use(cookieParser());
 
 
 smws.config({
     languages: ['en','es','fr','de'],
-    defaultLang: 'en',
+    defaultLang: 'es',
 	origin: 'https://www.camp-o-chile.cl'
 });
 
