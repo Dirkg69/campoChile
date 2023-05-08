@@ -39,13 +39,6 @@ app.use(mongoSanitize({ replaceWith: '_' }));
 app.use(morgan('dev'));
 app.use(express.json());
 
-
-smws.config({
-    languages: ['en','es','fr','de'],
-    defaultLang: 'en',
-	origin: 'https://www.camp-o-chile.cl'
-});
-
 const secret = process.env.SECRET;
 const store = MongoDBStore.create({
 	mongoUrl: dbUrl,
