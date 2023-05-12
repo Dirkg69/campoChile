@@ -1,5 +1,5 @@
 
-// require('dotenv').config();
+require('dotenv').config();
 
 const morgan = require('morgan');
 const express = require('express');
@@ -71,6 +71,7 @@ const scriptSrcUrls = [
 	'https://kit.fontawesome.com/',
 	'https://cdnjs.cloudflare.com/',
 	'https://cdn.jsdelivr.net',
+	'https://cdn.weglot.com/',
 ];
 const styleSrcUrls = [
 	'https://kit-free.fontawesome.com/',
