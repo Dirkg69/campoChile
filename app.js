@@ -80,6 +80,7 @@ const styleSrcUrls = [
 	'https://api.tiles.mapbox.com/',
 	'https://fonts.googleapis.com/',
 	'https://use.fontawesome.com/',
+	'https://cdn.weglot.com/',
 ];
 const connectSrcUrls = [
 	'https://api.mapbox.com/',
@@ -91,6 +92,7 @@ const connectSrcUrls = [
 const fontSrcUrls = [
 	'https://fonts.googleapis.com/',
 	'https://fonts.gstatic.com/',
+	'https://cdn.weglot.com/'
 ];
 app.use(
 	helmet.contentSecurityPolicy({
@@ -107,6 +109,7 @@ app.use(
 				'data:',
 				'https://res.cloudinary.com/dq47zodnm/',
 				'https://images.unsplash.com/',
+				'https://cdn.weglot.com/'
 			],
 			fontSrc: ["'self'", ...fontSrcUrls],
 		},
