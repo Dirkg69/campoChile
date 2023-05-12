@@ -58,6 +58,7 @@ const sessionConfig = {
 		httpOnly: true,
 		secure: 'auto',
 		maxAge: 3600000,
+		sameSite: 'None;Secure',
 	},
 };
 app.use(session(sessionConfig));
