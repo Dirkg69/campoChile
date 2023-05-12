@@ -71,14 +71,6 @@ const scriptSrcUrls = [
 	'https://kit.fontawesome.com/',
 	'https://cdnjs.cloudflare.com/',
 	'https://cdn.jsdelivr.net',
-	'https://pagead2.googlesyndication.com/',
-	'https://www.googletagmanager.com/',
-    'https://www.google-analytics.com/',
-	'https://partner.googleadservices.com/',
-	'https://adservice.google.cl/',
-	'https://adservice.google.com/',
-	'https://tpc.googlesyndication.com/',
-	'https://googleads.g.doubleclick.net',
 ];
 const styleSrcUrls = [
 	'https://kit-free.fontawesome.com/',
@@ -93,9 +85,6 @@ const connectSrcUrls = [
 	'https://a.tiles.mapbox.com/',
 	'https://b.tiles.mapbox.com/',
 	'https://events.mapbox.com/',
-	'https://pagead2.googlesyndication.com/',
-	'https://csi.gstatic.com/',
-	'https://googleads.g.doubleclick.net',
 ];
 const fontSrcUrls = [
 	'https://fonts.googleapis.com/',
@@ -104,7 +93,7 @@ const fontSrcUrls = [
 app.use(
 	helmet.contentSecurityPolicy({
 		directives: {
-			defaultSrc: ['https://googleads.g.doubleclick.net/','https://www.google.com/','https://tpc.googlesyndication.com/'],
+			defaultSrc: [],
 			connectSrc: ["'self'", ...connectSrcUrls],
 			scriptSrc: ["'unsafe-inline'", "'self'", ...scriptSrcUrls],
 			styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
@@ -116,7 +105,6 @@ app.use(
 				'data:',
 				'https://res.cloudinary.com/dq47zodnm/',
 				'https://images.unsplash.com/',
-				'https://pagead2.googlesyndication.com/',
 			],
 			fontSrc: ["'self'", ...fontSrcUrls],
 		},
@@ -160,7 +148,7 @@ app.use((err, _req, res, _next) => {
 	res.status(statusCode).render('error', { err });
 });
 
-const port = process.env.PORT || 3010;
+const port = process.env.PORT || 3030;
 
 app.listen(port, () => {
 	console.log(`Serving on port ${port}`);
