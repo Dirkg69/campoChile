@@ -58,7 +58,7 @@ const sessionConfig = {
 		httpOnly: true,
 		secure: 'auto',
 		maxAge: 3600000,
-	},
+        	},
 };
 app.use(session(sessionConfig));
 app.use(flash());
