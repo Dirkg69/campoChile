@@ -1,5 +1,5 @@
 
-require('dotenv').config();
+// require('dotenv').config();
 
 const morgan = require('morgan');
 const express = require('express');
@@ -86,6 +86,7 @@ const connectSrcUrls = [
 	'https://a.tiles.mapbox.com/',
 	'https://b.tiles.mapbox.com/',
 	'https://events.mapbox.com/',
+	'https://cdn.weglot.com/',
 ];
 const fontSrcUrls = [
 	'https://fonts.googleapis.com/',
