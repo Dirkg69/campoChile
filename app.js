@@ -88,6 +88,7 @@ const connectSrcUrls = [
 	'https://b.tiles.mapbox.com/',
 	'https://events.mapbox.com/',
 	'https://cdn.weglot.com/',
+	'https://cdn-api-weglot.com/',
 ];
 const fontSrcUrls = [
 	'https://fonts.googleapis.com/',
