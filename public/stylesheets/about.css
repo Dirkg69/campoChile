@@ -44,9 +44,11 @@ p span {
     text-shadow: none;
 }
 
-p {
-    animation-duration: 3s;
-    animation-name: slidein;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-  }
+#contact {
+    color:#df7825;
+    text-decoration: none;
+}
+
+#contact:hover {
+    color:white;
+}

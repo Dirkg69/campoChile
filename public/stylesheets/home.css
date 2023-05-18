@@ -34,3 +34,12 @@ h1 a:hover {
     background-color: #363535;
     text-shadow: none;
 }
+
+#contact {
+    color:#df7825;
+    text-decoration: none;
+}
+
+#contact:hover {
+    color:white;
+}
