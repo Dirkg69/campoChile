@@ -82,6 +82,7 @@ const styleSrcUrls = [
 	'https://fonts.googleapis.com/',
 	'https://use.fontawesome.com/',
 	'https://cdn.weglot.com/',
+	'https://www.googletagmanager.com/',
 ];
 const connectSrcUrls = [
 	'https://api.mapbox.com/',
