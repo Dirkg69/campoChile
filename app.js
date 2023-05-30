@@ -72,6 +72,7 @@ const scriptSrcUrls = [
 	'https://cdnjs.cloudflare.com/',
 	'https://cdn.jsdelivr.net',
 	'https://cdn.weglot.com/',
+	'https://www.googletagmanager.com/',
 ];
 const styleSrcUrls = [
 	'https://kit-free.fontawesome.com/',
