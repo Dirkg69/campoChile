@@ -90,6 +90,8 @@ const connectSrcUrls = [
 	'https://events.mapbox.com/',
 	'https://cdn.weglot.com/',
 	'https://cdn-api-weglot.com/',
+	'https://analytics.google.com/',
+	'https://stats.g.doubleclick.net/',
 ];
 const fontSrcUrls = [
 	'https://fonts.googleapis.com/',
@@ -111,7 +113,8 @@ app.use(
 				'data:',
 				'https://res.cloudinary.com/dq47zodnm/',
 				'https://images.unsplash.com/',
-				'https://cdn.weglot.com/'
+				'https://cdn.weglot.com/',
+				'https://www.google.cl/',
 			],
 			fontSrc: ["'self'", ...fontSrcUrls],
 		},
