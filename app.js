@@ -74,6 +74,8 @@ const scriptSrcUrls = [
 	'https://cdn.weglot.com/',
 	'https://www.googletagmanager.com/',
 	'https://pagead2.googlesyndication.com/',
+	'https://partner.googleadservices.com/',
+	'https://adservice.google.cl/',
 ];
 const styleSrcUrls = [
 	'https://kit-free.fontawesome.com/',
@@ -94,6 +96,7 @@ const connectSrcUrls = [
 	'https://cdn-api-weglot.com/',
 	'https://analytics.google.com/',
 	'https://stats.g.doubleclick.net/',
+	'https://pagead2.googlesyndication.com/',
 ];
 const fontSrcUrls = [
 	'https://fonts.googleapis.com/',
@@ -103,7 +106,7 @@ const fontSrcUrls = [
 app.use(
 	helmet.contentSecurityPolicy({
 		directives: {
-			defaultSrc: [],
+			defaultSrc: ['https://googleads.g.doubleclick.net/'],
 			connectSrc: ["'self'", ...connectSrcUrls],
 			scriptSrc: ["'unsafe-inline'", "'self'", ...scriptSrcUrls],
 			styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
@@ -119,6 +122,7 @@ app.use(
 				'https://www.google.cl/',
 				'https://www.googletagmanager.com/',
 				'https://fonts.gstatic.com/',
+				'https://pagead2.googlesyndication.com/',
 			],
 			fontSrc: ["'self'", ...fontSrcUrls],
 		},
