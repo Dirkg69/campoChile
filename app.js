@@ -116,6 +116,8 @@ app.use(
 				'https://images.unsplash.com/',
 				'https://cdn.weglot.com/',
 				'https://www.google.cl/',
+				'https://www.googletagmanager.com/',
+				'https://fonts.gstatic.com/',
 			],
 			fontSrc: ["'self'", ...fontSrcUrls],
 		},
