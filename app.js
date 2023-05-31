@@ -73,6 +73,7 @@ const scriptSrcUrls = [
 	'https://cdn.jsdelivr.net',
 	'https://cdn.weglot.com/',
 	'https://www.googletagmanager.com/',
+	'https://pagead2.googlesyndication.com/',
 ];
 const styleSrcUrls = [
 	'https://kit-free.fontawesome.com/',
