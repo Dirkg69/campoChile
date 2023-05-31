@@ -76,6 +76,8 @@ const scriptSrcUrls = [
 	'https://pagead2.googlesyndication.com/',
 	'https://partner.googleadservices.com/',
 	'https://adservice.google.cl/',
+	'https://adservice.google.com/',
+	'https://tpc.googlesyndication.com/',
 ];
 const styleSrcUrls = [
 	'https://kit-free.fontawesome.com/',
