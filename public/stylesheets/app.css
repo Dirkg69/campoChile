@@ -64,7 +64,7 @@ h5 {
 }
 
 li span {
-    color:rgb(60, 191, 60)
+    color:rgb(134, 203, 137)
 }
 
 #campTitleIndex {
@@ -80,4 +80,20 @@ li span {
 a {
     color: #df7825;
     text-decoration: none;
+}
+
+#parksLink {
+    color: rgb(195, 246, 197);
+}
+
+#parksLink:hover {
+    color: rgb(232, 231, 231);
+}
+
+#campsLink {
+    color: rgb(90, 89, 89);
+}
+
+#campsLink:hover {
+    color: rgb(232, 231, 231);
 }
