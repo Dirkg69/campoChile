@@ -43,3 +43,7 @@ h1 a:hover {
 #contact:hover {
     color:white;
 }
+
+#parksButton {
+    color: rgb(195, 246, 197);
+}

@@ -52,3 +52,7 @@ p span {
 #contact:hover {
     color:white;
 }
+
+#parksButton {
+    color: rgb(195, 246, 197);
+}
