@@ -72,12 +72,12 @@ const scriptSrcUrls = [
 	'https://cdnjs.cloudflare.com/',
 	'https://cdn.jsdelivr.net',
 	'https://cdn.weglot.com/',
-	'https://www.googletagmanager.com/',
-	'https://pagead2.googlesyndication.com/',
-	'https://partner.googleadservices.com/',
-	'https://adservice.google.cl/',
-	'https://adservice.google.com/',
-	'https://tpc.googlesyndication.com/',
+	// 'https://www.googletagmanager.com/',
+	// 'https://pagead2.googlesyndication.com/',
+	// 'https://partner.googleadservices.com/',
+	// 'https://adservice.google.cl/',
+	// 'https://adservice.google.com/',
+	// 'https://tpc.googlesyndication.com/',
 ];
 const styleSrcUrls = [
 	'https://kit-free.fontawesome.com/',
@@ -87,7 +87,7 @@ const styleSrcUrls = [
 	'https://fonts.googleapis.com/',
 	'https://use.fontawesome.com/',
 	'https://cdn.weglot.com/',
-	'https://www.googletagmanager.com/',
+	// 'https://www.googletagmanager.com/',
 ];
 const connectSrcUrls = [
 	'https://api.mapbox.com/',
@@ -96,9 +96,9 @@ const connectSrcUrls = [
 	'https://events.mapbox.com/',
 	'https://cdn.weglot.com/',
 	'https://cdn-api-weglot.com/',
-	'https://analytics.google.com/',
-	'https://stats.g.doubleclick.net/',
-	'https://pagead2.googlesyndication.com/',
+	// 'https://analytics.google.com/',
+	// 'https://stats.g.doubleclick.net/',
+	// 'https://pagead2.googlesyndication.com/',
 ];
 const fontSrcUrls = [
 	'https://fonts.googleapis.com/',
@@ -108,7 +108,7 @@ const fontSrcUrls = [
 app.use(
 	helmet.contentSecurityPolicy({
 		directives: {
-			defaultSrc: ['https://googleads.g.doubleclick.net/','https://tpc.googlesyndication.com/','https://www.google.com/'],
+			defaultSrc: [],
 			connectSrc: ["'self'", ...connectSrcUrls],
 			scriptSrc: ["'unsafe-inline'", "'self'", ...scriptSrcUrls],
 			styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
@@ -121,10 +121,10 @@ app.use(
 				'https://res.cloudinary.com/dq47zodnm/',
 				'https://images.unsplash.com/',
 				'https://cdn.weglot.com/',
-				'https://www.google.cl/',
-				'https://www.googletagmanager.com/',
-				'https://fonts.gstatic.com/',
-				'https://pagead2.googlesyndication.com/',
+				// 'https://www.google.cl/',
+				// 'https://www.googletagmanager.com/',
+				// 'https://fonts.gstatic.com/',
+				// 'https://pagead2.googlesyndication.com/',
 			],
 			fontSrc: ["'self'", ...fontSrcUrls],
 		},
