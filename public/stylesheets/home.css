@@ -8,25 +8,20 @@ body {
     text-shadow: 0 0 1px #df7825;
     box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
 }
-.cover-container {
-  max-width: 60vw;
-}
 
 h2 {
     color:#df7825;
     text-shadow: 0 0 1px #302f2f;
 }
 
-h1 a {
+a {
     color:white;
     text-decoration: none;
 }
 
-h1 a:hover {
+a:hover {
     color:#df7825;
 }
-
-
 
 .btn-secondary {
     color: #df7825;
@@ -47,3 +42,4 @@ h1 a:hover {
 #parksButton {
     color: rgb(195, 246, 197);
 }
+
