@@ -62,9 +62,7 @@ const sessionConfig = {
 };
 app.use(session(sessionConfig));
 app.use(flash());
-// app.use(helmet());
-// app.use(helmet.crossOriginEmbedderPolicy({ policy: "credentialless" }));
-app.use(helmet({crossOriginResourcePolicy: "cross-origin", crossOriginEmbedderPolicy: false,}));
+app.use(helmet());
 const scriptSrcUrls = [
 	'https://stackpath.bootstrapcdn.com/',
 	'https://api.tiles.mapbox.com/',
@@ -109,7 +107,7 @@ const fontSrcUrls = [
 app.use(
 	helmet.contentSecurityPolicy({
 		directives: {
-			defaultSrc: ['https://ws-na.amazon-adsystem.com/'],
+			defaultSrc: [],
 			connectSrc: ["'self'", ...connectSrcUrls],
 			scriptSrc: ["'unsafe-inline'", "'self'", ...scriptSrcUrls],
 			styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
