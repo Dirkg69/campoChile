@@ -3,7 +3,7 @@ const map = new mapboxgl.Map({
 	container: 'parkscluster-map',
 	style: 'mapbox://styles/dirkg69/clggvqtkh006501lbmpta5azm',
 	center: [-71.97773260204097, -39.27093708735973],
-	zoom: 3,
+	zoom: 2,
 });
 
 const geocoder = new MapboxGeocoder({
