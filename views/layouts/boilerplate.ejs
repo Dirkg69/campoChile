@@ -1,59 +1,57 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta name="title" content="Camp-o-Chile">
-  <meta name="description" content="Campsite and Parks locator">
-  <meta name="keywords" content="Camp, campo, camping, glamping, lodging, campsites, campar, camping en chile, camping in chile, parks, nacional parques, national parks">
-  <meta name="p:domain_verify" content="e2827d667fb90c0951a28928a0ae2e9c"/>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta name="language" content="Spanish">
-  <meta name="revisit-after" content="1 days">
-  <meta name="author" content="Dirk Goettling">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Camp-o-Chile</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
-    integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
-  <script src='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.js' crossorigin="anonymous"></script>
-  <link href='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css' rel='stylesheet' crossorigin="anonymous"/>
-  <link rel="stylesheet" href="/stylesheets/app.css"/>
-  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js " crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css" crossorigin="anonymous"/>
-  
- 
-  
-<link rel="alternate" hreflang="es" href="https://www.camp-o-chile.cl">
-<link rel="alternate" hreflang="en" href="https://en.camp-o-chile.cl">
-<link rel="alternate" hreflang="de" href="https://de.camp-o-chile.cl">
-<script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
-<script>
-    Weglot.initialize({
-        api_key: 'wg_cc5f7a87ca8e8b1ed8bc69fd8a4242308'
-    });
-</script>
+    <meta name="title" content="Camp-o-Chile">
+    <meta name="description" content="Campsite and Parks locator">
+    <meta name="keywords" content="Camp, campo, camping, glamping, lodging, campsites, campar, camping en chile, camping in chile, parks, nacional parques, national parks">
+    <meta name="p:domain_verify" content="e2827d667fb90c0951a28928a0ae2e9c" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="Spanish">
+    <meta name="revisit-after" content="1 days">
+    <meta name="author" content="Dirk Goettling">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <title>Camp-o-Chile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.js' crossorigin="anonymous"></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css' rel='stylesheet' crossorigin="anonymous" />
+    <link rel="stylesheet" href="/stylesheets/app.css" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js " crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css" crossorigin="anonymous" />
+
+
+
+    <link rel="alternate" hreflang="es" href="https://www.camp-o-chile.cl">
+    <link rel="alternate" hreflang="en" href="https://en.camp-o-chile.cl">
+    <link rel="alternate" hreflang="de" href="https://de.camp-o-chile.cl">
+    <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
+    <script>
+        Weglot.initialize({
+            api_key: 'wg_cc5f7a87ca8e8b1ed8bc69fd8a4242308'
+        });
+    </script>
 
 </head>
+
 <body class="d-flex flex-column vh-100">
     <%-include('../partials/navbar') %>
-    <main class="container-fluid mt-5">
-      <%-include('../partials/flash')%>
-        <%-body%>
-    </main>
-    
-    <%-include('../partials/footer')%>
+        <main class="container-fluid mt-5">
+            <%-include('../partials/flash')%>
+                <%-body%>
+        </main>
 
-      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
-        integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
-        crossorigin="anonymous"></script>
-      <script src='/javascripts/validateForms.js'></script>
-       
+        <%-include('../partials/footer')%>
+
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+            <script src='/javascripts/validateForms.js'></script>
+
 </body>
 
 </html>
