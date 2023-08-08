@@ -1,13 +1,12 @@
-
-#cluster-map {  
-    height: 650px;
+#cluster-map {
+    height: 675px;
     border-style: double;
     border-width: 2px;
     border-color: rgba(65, 67, 69, 0.605);
 }
 
-#parkscluster-map {  
-    height: 650px;
+#parkscluster-map {
+    height: 675px;
     border-style: double;
     border-width: 2px;
     border-color: rgba(65, 67, 69, 0.605);
@@ -32,25 +31,23 @@
 body {
     background-color: rgb(225, 228, 232);
     font-family: 'Roboto', sans-serif;
-    padding-top: 30px;
+    padding-top: 10px;
 }
-
 
 #campgroundCarousel {
     border-style: solid;
     border-width: 2px;
     border-color: rgba(65, 67, 69, 0.605);
-    max-height: 450px;
+    max-height: 475px;
 }
 
 .carousel-item img {
     width: 100%;
-    max-height: 445px;
+    max-height: 470px;
 }
 
 #indexCards {
-    transition:transform 0.5s ease-in-out;
-   
+    transition: transform 0.5s ease-in-out;
 }
 
 #indexCards:hover {
@@ -59,12 +56,16 @@ body {
     position: relative;
 }
 
+#navbar {
+    padding: 0%;
+}
+
 h5 {
     color: #df7825;
 }
 
 li span {
-    color:rgb(134, 203, 137)
+    color: rgb(134, 203, 137)
 }
 
 #campTitleIndex {
@@ -97,4 +98,3 @@ a {
 #campsLink:hover {
     color: rgb(232, 231, 231);
 }
-
