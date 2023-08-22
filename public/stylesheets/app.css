@@ -44,6 +44,7 @@ body {
 .carousel-item img {
     width: 100%;
     max-height: 470px;
+    object-fit: cover;
 }
 
 #indexCards {
