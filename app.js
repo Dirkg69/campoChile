@@ -1,5 +1,6 @@
+/** @format */
 
-// require('dotenv').config();
+require('dotenv').config();
 
 const morgan = require('morgan');
 const express = require('express');
@@ -22,12 +23,14 @@ const parkReviewRoutes = require('./routes/parkReviews');
 const parkRoutes = require('./routes/parks');
 const dbUrl = process.env.DB_URL;
 const MongoDBStore = require('connect-mongo');
-
-mongoose.connect(dbUrl)
+mongoose.set('strictQuery', true);
+mongoose.connect(dbUrl);
 
 const db = mongoose.connection;
 const app = express();
-db.once('open', () => {console.log('Database connected');});
+db.once('open', () => {
+	console.log('Database connected');
+});
 
 app.engine('ejs', ejsMate);
 app.set('view engine', 'ejs');
@@ -58,7 +61,7 @@ const sessionConfig = {
 		httpOnly: true,
 		secure: 'auto',
 		maxAge: 3600000,
-        	},
+	},
 };
 app.use(session(sessionConfig));
 app.use(flash());
@@ -102,7 +105,7 @@ const connectSrcUrls = [
 const fontSrcUrls = [
 	'https://fonts.googleapis.com/',
 	'https://fonts.gstatic.com/',
-	'https://cdn.weglot.com/'
+	'https://cdn.weglot.com/',
 ];
 app.use(
 	helmet.contentSecurityPolicy({
@@ -132,7 +135,7 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
-passport.use (new LocalStrategy(User.authenticate()));
+passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
