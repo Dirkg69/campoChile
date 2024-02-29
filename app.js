@@ -23,7 +23,7 @@ const parkReviewRoutes = require('./routes/parkReviews');
 const parkRoutes = require('./routes/parks');
 const dbUrl = process.env.DB_URL;
 const MongoDBStore = require('connect-mongo');
-mongoose.set('strictQuery', true);
+
 mongoose.connect(dbUrl);
 
 const db = mongoose.connection;
