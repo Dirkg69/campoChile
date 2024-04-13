@@ -1,6 +1,6 @@
 /** @format */
 
-require('dotenv').config();
+// require('dotenv').config();
 
 const morgan = require('morgan');
 const express = require('express');
@@ -73,7 +73,7 @@ const scriptSrcUrls = [
 	'https://kit.fontawesome.com/',
 	'https://cdnjs.cloudflare.com/',
 	'https://cdn.jsdelivr.net',
-	'https://cdn.weglot.com/',
+	// 'https://cdn.weglot.com/',
 	// 'https://www.googletagmanager.com/',
 	// 'https://pagead2.googlesyndication.com/',
 	// 'https://partner.googleadservices.com/',
@@ -88,7 +88,7 @@ const styleSrcUrls = [
 	'https://api.tiles.mapbox.com/',
 	'https://fonts.googleapis.com/',
 	'https://use.fontawesome.com/',
-	'https://cdn.weglot.com/',
+	// 'https://cdn.weglot.com/',
 	// 'https://www.googletagmanager.com/',
 ];
 const connectSrcUrls = [
@@ -96,8 +96,8 @@ const connectSrcUrls = [
 	'https://a.tiles.mapbox.com/',
 	'https://b.tiles.mapbox.com/',
 	'https://events.mapbox.com/',
-	'https://cdn.weglot.com/',
-	'https://cdn-api-weglot.com/',
+	// 'https://cdn.weglot.com/',
+	// 'https://cdn-api-weglot.com/',
 	// 'https://analytics.google.com/',
 	// 'https://stats.g.doubleclick.net/',
 	// 'https://pagead2.googlesyndication.com/',
@@ -105,7 +105,7 @@ const connectSrcUrls = [
 const fontSrcUrls = [
 	'https://fonts.googleapis.com/',
 	'https://fonts.gstatic.com/',
-	'https://cdn.weglot.com/',
+	// 'https://cdn.weglot.com/',
 ];
 app.use(
 	helmet.contentSecurityPolicy({
@@ -122,7 +122,7 @@ app.use(
 				'data:',
 				'https://res.cloudinary.com/dq47zodnm/',
 				'https://images.unsplash.com/',
-				'https://cdn.weglot.com/',
+				// 'https://cdn.weglot.com/',
 				// 'https://www.google.cl/',
 				// 'https://www.googletagmanager.com/',
 				// 'https://fonts.gstatic.com/',
