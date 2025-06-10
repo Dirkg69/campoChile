@@ -13,7 +13,7 @@
 	"dependencies": {
 		"@mapbox/mapbox-gl-geocoder": "^5.0.2",
 		"@mapbox/mapbox-sdk": "^0.15.3",
-		"bcrypt": "^5.1.1",
+		"bcrypt": "^6.0.0",
 		"cloudinary": "^1.35.0",
 		"connect-flash": "^0.1.1",
 		"connect-mongo": "^4.6.0",
@@ -32,7 +32,7 @@
 		"mongodb": "^4.17.2",
 		"mongoose": "^6.10.1",
 		"morgan": "^1.10.0",
-		"multer": "^1.4.5-lts.1",
+		"multer": "^2.0.1",
 		"multer-storage-cloudinary": "^4.0.0",
 		"node": "^20.4.0",
 		"nodemon": "^3.0.1",
