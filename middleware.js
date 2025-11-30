@@ -1,9 +1,23 @@
-const { campgroundSchema, reviewSchema, parkSchema, parkReviewSchema } = require('./schemas.js');
+/** @format */
+
+const {
+	campgroundSchema,
+	reviewSchema,
+	parkSchema,
+	parkReviewSchema,
+} = require('./schemas.js');
 const ExpressError = require('./utils/ExpressError');
 const Campground = require('./models/campground');
 const Review = require('./models/review');
 const Park = require('./models/park');
 const ParkReview = require('./models/parkReview');
+
+module.exports.storeReturnTo = (req, res, next) => {
+	if (req.session.returnTo) {
+		res.locals.returnTo = req.session.returnTo;
+	}
+	next();
+};
 
 module.exports.isLoggedIn = (req, res, next) => {
 	if (!req.isAuthenticated()) {
@@ -82,8 +96,6 @@ module.exports.validateReview = (req, res, next) => {
 	if (error) {
 		req.flash('error', '¡Seleccione una calificación de estrellas por favor!');
 		return res.redirect(`/campgrounds/${id}`);
-		// const msg = error.details.map((el) => el.message).join(',');
-		// throw new ExpressError(400);
 	} else {
 		next();
 	}
@@ -95,16 +107,7 @@ module.exports.validateParkReview = (req, res, next) => {
 	if (error) {
 		req.flash('error', '¡Seleccione una calificación de estrellas por favor!');
 		return res.redirect(`/parks/${id}`);
-		
 	} else {
 		next();
 	}
 };
-
-module.exports.checkReturnTo = (req, res, next) => {
-	if (req.session.returnTo) {
-		res.locals.returnTo=req.session.returnTo;
-}
-	next();
-};
-
